@@ -1,0 +1,17 @@
+<wiidisc version="1" shiftfiles="true">
+	<id game="SMN">
+		<region type="J"/>
+	</id>
+    <options>
+        <section name="Kazuki Mario Wii">
+            <option name="Kazuki Mario Wii" id="kazuki_mario_wii">
+                <choice name="Enabled"><patch id="kazuki_mario_wii"/></choice>
+            </option>
+</section>
+    </options>
+    <patch id="kazuki_mario_wii">
+        <memory offset="0x80001800" valuefile="/kazuki_mario_wii/Loader.bin" />
+        <memory offset="0x801c4cd0" original="38000061" value="4be3cb30" />
+		<folder external="/kazuki_mario_wii/files" disc="/" create="true" />
+</patch>
+</wiidisc>
