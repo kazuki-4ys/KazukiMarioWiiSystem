@@ -1,5 +1,41 @@
 #include "common.h"
 
+void *my_malloc(unsigned int length){
+    void (*OSReport)(const char*, ...) = (void*)OSREPORT;
+    void*(*AllocFromGameHeap1)(unsigned int) = (void*)ALLOC_FROM_GAME_HEAP;
+    unsigned int buf = (unsigned int)AllocFromGameHeap1(length + 0x20);
+    if(!buf){
+        OSReport(getString9());
+        return NULL;
+    }
+    if((buf & 0x1F) == 0)return (void*)buf;
+    return (void*)((buf + 0x20) & (~0x1F));
+}
+
+void *my_malloc_via_allocator(unsigned int length){
+    void (*OSReport)(const char*, ...) = (void*)OSREPORT;
+    void*(*MEMAllocFromAllocator)(void*, unsigned int) = (void*)MEM_ALLOC_FROM_ALLOCATOR;
+    myMemStruct *myMem = *((myMemStruct**)((void*)MY_MEM_PTR_PTR));
+    if(!myMem)return NULL;
+    void *dest = MEMAllocFromAllocator(myMem->allocator, length);
+    if(!dest){
+        OSReport(getString9());
+        return NULL;
+    }
+    return dest;
+}
+
+void setStageTimerRaw(int time){
+    unknownStageTimerStruct *ustsp = *((unknownStageTimerStruct**)((void*)UNKNOWN_STAGE_TIMER_STRUCT_PTR_PTR));
+    if(!ustsp)return;
+    ustsp->stageTimer = time;
+}
+
+unsigned int random(unsigned int max){
+    unsigned int(*GenerateRandomNumber)(int) = (void*)GENERATE_RANDOM_NUMBER;
+    return GenerateRandomNumber(max);
+}
+
 void u32ToBytes(unsigned char *mem, unsigned int val){
     *mem = (val >> 24);
     *(mem + 1) = ((val >> 16) & 0xFF);
@@ -7,9 +43,24 @@ void u32ToBytes(unsigned char *mem, unsigned int val){
     *(mem + 3) = (val & 0xFF);
 }
 
+void u16ToBytes(unsigned char *mem, unsigned short val){
+    *mem = (val >> 8);
+    *(mem + 1) = (val & 0xFF);
+}
+
+unsigned short bytesToU16(unsigned char *mem){
+    return (*mem << 8) | *(mem + 1);
+}
+
 unsigned int bytesToU32(unsigned char *mem){
     return (*mem << 24) | (*(mem + 1) << 16) | (*(mem + 2) << 8) | *(mem + 3);
 }
+
+/*void *my_memset(void *buf, int ch, unsigned int n){
+    unsigned char *bufChar = (unsigned char*)buf;
+    for(int i = 0;i < n;i++)*(buf + i) = (unsigned char)ch;
+    return buf;
+}*/
 
 unsigned int makeBranchInstructionByAddrDelta(int addrDelta){
     unsigned int instruction = 0;
@@ -30,6 +81,36 @@ void injectBranchPatch(void *targetAddr, void *codeStart, void *codeEnd, bool do
     if(doIcInvalidate)ICInvalidateRange((void*)((unsigned int)targetAddr & (~0x1F)), 0x20);
 }
 
+void makeInArchiveCourseFileName(char *dest, unsigned int destSize, int area, int layer){
+    int (*sprintf)(char * buf, const char * format, ...) = (void*)SPRINTF;
+    //my_memset(dest, 0, destSize);
+    if(layer < 0){
+        sprintf(dest, getString7(), area);
+    }else{
+        sprintf(dest, getString8(), area, layer);
+    }
+}
+
+unsigned char *getARCChildFilePointer(unsigned char* arcFile, const char *targetFile, unsigned int *targetFileSize){
+    int (*strcmp)(const char*, const char*) = (void*)STRCMP;
+    if(bytesToU32(arcFile) != 0x55AA382D)return NULL;//ARCファイルじゃない
+    unsigned char *firstNode = bytesToU32(arcFile + 0x4) + arcFile;
+    unsigned int nodeCount = bytesToU32(firstNode + 0x8);
+    unsigned char *stringPool = nodeCount * 0xC + firstNode;
+    unsigned char *curNode = firstNode;
+    unsigned int curNodeIndex = 0;
+    while(curNodeIndex < nodeCount){
+        if(!strcmp((bytesToU32(curNode) & 0xFFFFFF) + stringPool, targetFile)){
+            if(targetFileSize)*targetFileSize = bytesToU32(curNode + 8);
+            //return bytesToU32(curNode + 4) + filesMass;
+            return bytesToU32(curNode + 4) + arcFile;
+        }
+        curNodeIndex++;
+        curNode += 0xC;
+    }
+    return NULL;//targetFileが見つからなかった
+}
+
 void __main(void){
     void (*OSReport)(const char*, ...) = (void*)0x8015F540;
     OSReport(getString6());
@@ -39,4 +120,7 @@ void __main(void){
     injectBranchPatch((void*)0x8008e5e4, get_patch6_get_music_id_asm(), get_patch6_get_music_id_asm_end(), true);
     injectBranchPatch((void*)0x8026917c, get_patch7_brstm_hijacker_asm(), get_patch7_brstm_hijacker_asm_end(), true);
     injectBranchPatch((void*)0x802691c0, get_patch8_auto_brsar_patch_asm(), get_patch8_auto_brsar_patch_asm_end(), true);
+    injectBranchPatch((void*)0x8019F510, get_patch9_arc_open_hook_asm(), get_patch9_arc_open_hook_asm_end(), true);
+    injectBranchPatch((void*)0x801D5350, get_patch10_mem_alloc_from_allocator_hook_asm(), get_patch10_mem_alloc_from_allocator_hook_asm_end(), true);
+    injectBranchPatch((void*)0x80068f54, get_patch11_bugmario_actorcreate_hook_asm(), get_patch11_bugmario_actorcreate_hook_asm_end(), true);
 }

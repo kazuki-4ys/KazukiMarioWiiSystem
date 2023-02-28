@@ -16,11 +16,17 @@ patch4 ...スプライト99をボム兵の代わりにコインが出るよう�
 
 patch5 ...スプライト124で生成されるジュゲムをコインをドロップするタイプに変更(1-1のみ)
 
-patch6 ...Reggie! nextで指定したBackground Music IDを取得
+patch6 ...Reggie! nextで指定したBackground Music IDを取得、1-2用の迷路の生成と敵の配置などを決定
 
-patch7 ...patch5で取得したIDに対応する、追加したbrstm再生
+patch7 ...patch6で取得したIDに対応する、追加したbrstm再生
 
 patch8 ...brstmのサイズをbrsarに自動でパッチし、bgmが途切れないようにする
+
+patch9 ...いまのコースのarcファイルへのポインタ取得、1-2用のフラグ破棄
+
+patch10 ...メモリを確保するための変数を取得
+
+patch11 ...patch6で決めたとおりに敵を生成(1-2のみ)
 
 
 これらのパッチはほとんどNewer Super Mario Bros. Wiiのソースコードをもとに作成しました。Newer Teamに感謝致します。

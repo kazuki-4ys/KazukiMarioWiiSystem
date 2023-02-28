@@ -5,8 +5,7 @@ void *get_patch4_dokan_coin_spawner_asm_end(void);
 void *get_patch5_coin_lakitu_spawner_asm(void);
 void *get_patch5_coin_lakitu_spawner_asm_end(void);
 
-
-/*bool isEventEnabled(unsigned char eventId){//特定のイベントが作動したかチェックEvent IDは最大64まで((多分)
+bool isEventEnabled(unsigned char eventId){//特定のイベントが作動したかチェックEvent IDは最大64まで((多分)
     if(eventId == 0 || eventId > 64)return false;//0は常に無効(多分)
     unsigned char *eventTable = *((unsigned char**)((void*)EVENT_TABLE));
     if(!eventTable)return false;
@@ -15,10 +14,10 @@ void *get_patch5_coin_lakitu_spawner_asm_end(void);
     unsigned char eventIdFlagByteIndex = 7 - (internalEventId >> 3);
     if((*(eventTable + eventIdFlagByteIndex) & eventIdFlag) != 0)return true;
     return false;
-}*/
+}
 
 void patch1_run_1fr(void){
-    void(*ExitStage)(unsigned int, unsigned int, unsigned int, unsigned int) = (void*)0x801021e0;
+    void(*ExitStage)(unsigned int, unsigned int, unsigned int, unsigned int) = (void*)EXIT_STAGE;
     void*(*AllocFromGameHeap1)(unsigned int) = (void*)0x801626D0;
     myMemStruct **myMemPtr = ((myMemStruct**)((void*)MY_MEM_PTR_PTR));
     if(!(*myMemPtr)){//first, we need to allocate memory fou us.
@@ -33,7 +32,12 @@ void patch1_run_1fr(void){
     //rev2
     if(bytesToU32((void*)0x80ABB09C) == 0xD0010010)injectBranchPatch((void*)0x80abb0a0, get_patch4_dokan_coin_spawner_asm(), (*myMemPtr)->patch4CodeEnd, true);
     if(bytesToU32((void*)0x80ABC434) == 0x38600053)injectBranchPatch((void*)0x80abc434, get_patch5_coin_lakitu_spawner_asm(), (*myMemPtr)->patch5CodeEnd, true);
-    //if(isEventEnabled(3))ExitStage(3, 0, BEAT_LEVEL, MARIO_WIPE);
-    //myMemStruct *myMem = *myMemPtr;
+    unsigned char curLevelWorld = *((unsigned char*)((void*)CUR_LEVEL_WORLD)) + 1;
+    unsigned char curLevelStage = *((unsigned char*)((void*)CUR_LEVEL_STAGE)) + 1;
+    myMemStruct *myMem = *myMemPtr;
+    if(curLevelWorld == 1 && curLevelStage == 2){//1-2は制限時間無限&イベント64が作動したらコースクリア
+        setStageTimerRaw(0x003E6988);
+        if(isEventEnabled(64))ExitStage(3, 0, BEAT_LEVEL, MARIO_WIPE);;
+    }
     return;
 }

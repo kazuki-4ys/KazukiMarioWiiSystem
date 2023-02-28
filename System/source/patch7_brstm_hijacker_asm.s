@@ -22,6 +22,10 @@
 .global getString3
 .global getString4
 .global getString5
+.global getString13
+.global getString14
+.global getString15
+.global getString16
 
 get_patch7_brstm_hijacker_asm_end:
     mflr r12
@@ -65,6 +69,24 @@ getString1:
     mtlr r12
     blr
 
+getString13:
+    mflr r12
+    bl string_13
+    .string "/Sound/stream/athletic_lr.n.32.brstm\0\0\0"
+    string_13:
+    mflr r3
+    mtlr r12
+    blr
+
+getString14:
+    mflr r12
+    bl string_14
+    .string "/Sound/stream/STRM_BGM_CHIKA.brstm\0"
+    string_14:
+    mflr r3
+    mtlr r12
+    blr
+
 getString2:
     mflr r12
     bl string_2
@@ -97,6 +119,24 @@ getString5:
     bl string_5
     .string "/Sound/stream/%02x_fast.brstm\0\0"
     string_5:
+    mflr r3
+    mtlr r12
+    blr
+
+getString15:
+    mflr r12
+    bl string_15
+    .string "/Sound/stream/athletic_fast_lr.n.32.brstm\0\0"
+    string_15:
+    mflr r3
+    mtlr r12
+    blr
+
+getString16:
+    mflr r12
+    bl string_16
+    .string "/Sound/stream/STRM_BGM_CHIKA_FAST.brstm\0\0\0\0"
+    string_16:
     mflr r3
     mtlr r12
     blr
