@@ -21,7 +21,7 @@ void* patch11_bugmario_actorcreate_hook(unsigned short classID, int settings, VE
 		mazePos mp;
 		convertPos3ToMazePos(pos, &mp);
 		unsigned int tekiType = samePosTekiType(&(myMem->mugenGame), &mp);
-		if(tekiType == INVALID_TEKI)return CreateActor(747, 0, pos, rot, layer);
+		if(tekiType == INVALID_TEKI)return NULL;
 		switch(tekiType){
 			case NOKONOKO:
 				return CreateActor(EN_NOKONOKO, 1, pos, rot, layer);
