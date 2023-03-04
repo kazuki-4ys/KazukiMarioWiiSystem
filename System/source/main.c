@@ -25,6 +25,11 @@ void *my_malloc_via_allocator(unsigned int length){
     return dest;
 }
 
+Actor *CreateActor(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer){
+    Actor* (*create_actor_ptr)(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer) = (void*)CREATE_ACTOR;
+    return create_actor_ptr(classID, settings, pos, rot, layer);
+}
+
 void setStageTimerRaw(int time){
     unknownStageTimerStruct *ustsp = *((unknownStageTimerStruct**)((void*)UNKNOWN_STAGE_TIMER_STRUCT_PTR_PTR));
     if(!ustsp)return;

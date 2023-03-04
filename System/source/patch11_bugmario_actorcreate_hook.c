@@ -12,8 +12,7 @@ void convertPos3ToMazePos(VEC3 *pos, mazePos *mp){
 }
 
 
-void* patch11_bugmario_actorcreate_hook(unsigned short classID, int settings, VEC3 *pos, char rot, char layer){
-	void* (*CreateActor)(unsigned short classID, int settings, VEC3 *pos, char rot, char layer) = (void*)CREATE_ACTOR;
+void* patch11_bugmario_actorcreate_hook(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer){
 	myMemStruct *myMem = *((myMemStruct**)((void*)MY_MEM_PTR_PTR));
 	unsigned char curLevelWorld = *((unsigned char*)((void*)CUR_LEVEL_WORLD)) + 1;
     unsigned char curLevelStage = *((unsigned char*)((void*)CUR_LEVEL_STAGE)) + 1;

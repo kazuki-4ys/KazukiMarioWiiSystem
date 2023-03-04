@@ -771,4 +771,62 @@ enum Actors {
 	LASTACTOR = 751
 };
 
+typedef struct{
+	void *parent, *child, *prev_sibling, *next_sibling;
+	void *obj;
+}tree_node;
+
+typedef struct{
+	float x;
+	float y;
+	float z;
+}VEC3;
+
+typedef struct{
+	int field_0x00;
+	unsigned int settings;
+	short type;
+	int field_0x0A;
+	char field_0x0E;
+	char field_0x0F;
+	tree_node node;
+	int field_0x24;
+	int field_0x28;
+	void *field_0x2C;
+	short field_0x30;
+	short field_0x32;
+	int field_0x34;
+	int field_0x38;
+	void *field_0x3C;
+	short field_0x40;
+	short field_0x42;
+	int field_0x44;
+	int field_0x48;
+	void *field_0x4C;
+	int field_0x50;
+	int field_0x54;
+	int field_0x58;
+	void *vtable;
+	int field_0x64;
+	int field_0x68;
+	char *class_name;
+	int field_0x70;
+	int field_0x74;
+	void *field_0x78;
+	int field_0x7C;
+	int field_0x80;
+	int field_0x84;
+	int field_0x88;
+	int field_0x8C;
+	int field_0x90;
+	int field_0x94;
+	int field_0x98;
+	int field_0x9C;
+	int field_0xA0;
+	int field_0xA4;
+	int field_0xA8;
+	VEC3 position;
+	// more goes here eventually...
+}Actor;
+
 #endif//_ACTORS_H_

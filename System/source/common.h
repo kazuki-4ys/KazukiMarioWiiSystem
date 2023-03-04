@@ -1,6 +1,8 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
+#include "actors.h"
+
 #define MY_MEM_PTR_PTR 0x800001B0
 #define CUR_LEVEL_WORLD 0x803159bE
 #define CUR_LEVEL_STAGE 0x803159bF
@@ -29,12 +31,6 @@ typedef struct{
 	void *unk;
 	unsigned int stageTimer;
 }unknownStageTimerStruct;
-
-typedef struct{
-	float x;
-	float y;
-	float z;
-}VEC3;
 
 enum PowerupStoreTypes {
 	BEAT_LEVEL = 0, // Keeps powerups
@@ -126,6 +122,7 @@ float abs(float);
 unsigned int floatToInt(float);
 void *my_malloc(unsigned int length);
 void *my_malloc_via_allocator(unsigned int length);
+Actor *CreateActor(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer);
 void setStageTimerRaw(int time);
 unsigned int random(unsigned int max);
 void u32ToBytes(unsigned char *mem, unsigned int val);
