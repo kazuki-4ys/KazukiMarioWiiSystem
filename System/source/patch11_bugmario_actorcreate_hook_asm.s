@@ -25,6 +25,7 @@ get_patch11_bugmario_actorcreate_hook_asm:
 bl get_patch11_bugmario_actorcreate_hook_asm_bl
 patch11_bugmario_actorcreate_hook_asm:
     pushStack
+    mr r8, r27
     bl patch11_bugmario_actorcreate_hook
     stw r3, -4 (sp)
     popStack

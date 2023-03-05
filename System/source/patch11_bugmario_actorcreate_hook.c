@@ -12,7 +12,7 @@ void convertPos3ToMazePos(VEC3 *pos, mazePos *mp){
 }
 
 
-void* patch11_bugmario_actorcreate_hook(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer){
+void* patch11_bugmario_actorcreate_hook(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer, unsigned char *r27){
 	myMemStruct *myMem = *((myMemStruct**)((void*)MY_MEM_PTR_PTR));
 	unsigned char curLevelWorld = *((unsigned char*)((void*)CUR_LEVEL_WORLD)) + 1;
     unsigned char curLevelStage = *((unsigned char*)((void*)CUR_LEVEL_STAGE)) + 1;
@@ -41,6 +41,15 @@ void* patch11_bugmario_actorcreate_hook(unsigned short classID, int settings, VE
 			default:
 				return CreateActor(EN_KURIBO, settings, pos, rot, layer);
 		}
+	}
+	if(bytesToU16(r27) == 208){//スプライト208
+		unsigned short extendedItemBlockClassID = (unsigned short)((settings & 0xFFFF) >> 4);
+		unsigned int extendedItemBlockSettings = bytesToU16(r27 + 6);
+		Actor *extendedItemBlock = CreateActor(classID, (int)(((unsigned int)settings) & 0xFFFF000F), pos, rot, layer);
+		if(extendedItemBlockClassID != 0){
+			extendedItemBlock->field_0x80 = (int)((((unsigned int)extendedItemBlockClassID) << 16) | extendedItemBlockSettings);
+		}
+		return extendedItemBlock;
 	}
 	return CreateActor(classID, settings, pos, rot, layer);
 }

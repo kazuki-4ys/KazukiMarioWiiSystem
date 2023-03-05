@@ -128,4 +128,5 @@ void __main(void){
     injectBranchPatch((void*)0x8019F510, get_patch9_arc_open_hook_asm(), get_patch9_arc_open_hook_asm_end(), true);
     injectBranchPatch((void*)0x801D5350, get_patch10_mem_alloc_from_allocator_hook_asm(), get_patch10_mem_alloc_from_allocator_hook_asm_end(), true);
     injectBranchPatch((void*)0x80068f54, get_patch11_bugmario_actorcreate_hook_asm(), get_patch11_bugmario_actorcreate_hook_asm_end(), true);
+    injectBranchPatch((void*)0x80022AAC, get_patch12_sprite_208_block_actorcreate_hook_asm(), get_patch12_sprite_208_block_actorcreate_hook_asm_end(), true);
 }

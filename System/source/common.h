@@ -167,5 +167,7 @@ void *get_patch10_mem_alloc_from_allocator_hook_asm(void);
 void *get_patch10_mem_alloc_from_allocator_hook_asm_end(void);
 void *get_patch11_bugmario_actorcreate_hook_asm(void);
 void *get_patch11_bugmario_actorcreate_hook_asm_end(void);
+void *get_patch12_sprite_208_block_actorcreate_hook_asm(void);
+void *get_patch12_sprite_208_block_actorcreate_hook_asm_end(void);
 
 #endif//_COMMON_H_
