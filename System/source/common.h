@@ -7,17 +7,26 @@
 #define CUR_LEVEL_WORLD 0x803159bE
 #define CUR_LEVEL_STAGE 0x803159bF
 
+#define ARCHIVE_HEAP 0x8042A16C
+#define EGG_HEAP_ALLOC 0x802B8AD0
+#define EGG_HEAP_FREE 0x802B8D80
 #define EXIT_STAGE 0x801021e0
 #define EVENT_TABLE 0x80429D98
 #define OSREPORT 0x8015F540
+#define FREE_FROM_GAME_HEAP 0x80162730
 #define ALLOC_FROM_GAME_HEAP 0x801626D0
 #define MEM_ALLOC_FROM_ALLOCATOR 0x801D5350
 #define CREATE_ACTOR 0x80064610
 #define DVD_CONVERT_PATH_TO_ENTRY_NUM 0x801CA490
+#define DVD_FAST_OPEN 0x801CA7A0
+#define DVD_READ_PRIO 0x801CA930
+#define DVD_CLOSE 0x801CA810
 #define SPRINTF 0x802E15EC
 #define STRCMP 0x802E18C4
 #define MEMCPY 0x80004364
 #define GENERATE_RANDOM_NUMBER 0x800B2EE0
+#define SNPRINTF 0x802E14F8
+#define BG_TEX_MNG_LOAD_ANIM_TILE 0x80087B60
 #define UNKNOWN_STAGE_TIMER_STRUCT_PTR_PTR 0x80429D90
 
 #define NULL 0
@@ -26,6 +35,14 @@
 #define false 0
 
 typedef unsigned char bool;
+
+typedef struct{
+    unsigned char unk0[0x34];
+    unsigned int length;
+    //0x38
+    unsigned char unk1[4];
+    //全部で0x3Cバイト
+}DVDFileInfo;
 
 typedef struct{
 	void *unk;
@@ -106,6 +123,12 @@ typedef struct{
 }mugendaiMeikyu;
 
 typedef struct{
+	void *allocPtr;
+	void *filePtr;
+	int length;
+}FileHandle;
+
+typedef struct{
 	void *patch4CodeEnd;
 	void *patch5CodeEnd;
 	void *allocator;
@@ -115,12 +138,14 @@ typedef struct{
 	unsigned char myMusicId;
 	unsigned char *courseArcFile;
 	mugendaiMeikyu mugenGame;
+	FileHandle animTilesBin;
 }myMemStruct;
 
 float initializeFloat(unsigned int);
 float abs(float);
 unsigned int floatToInt(float);
 void *my_malloc(unsigned int length);
+void my_free(void *ptr);
 void *my_malloc_via_allocator(unsigned int length);
 Actor *CreateActor(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer);
 void setStageTimerRaw(int time);
@@ -144,6 +169,10 @@ const char *getString13(void);
 const char *getString14(void);
 const char *getString15(void);
 const char *getString16(void);
+const char *getString17(void);
+const char *getString18(void);
+const char *getString19(void);
+const char *getString20(void);
 void ICInvalidateRange(void*, unsigned int);
 void *get_patch1_run_1fr_asm(void);
 void *get_patch1_run_1fr_asm_end(void);
@@ -169,5 +198,9 @@ void *get_patch11_bugmario_actorcreate_hook_asm(void);
 void *get_patch11_bugmario_actorcreate_hook_asm_end(void);
 void *get_patch12_sprite_208_block_actorcreate_hook_asm(void);
 void *get_patch12_sprite_208_block_actorcreate_hook_asm_end(void);
+void *get_patch13_newer_do_tiles_asm(void);
+void *get_patch13_newer_do_tiles_asm_end(void);
+void *get_patch14_newer_destroy_tiles_asm(void);
+void *get_patch14_newer_destroy_tiles_asm_end(void);
 
 #endif//_COMMON_H_

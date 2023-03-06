@@ -7,6 +7,10 @@
 .global getString10
 .global getString11
 .global getString12
+.global getString17
+.global getString18
+.global getString19
+.global getString20
 .global ICInvalidateRange
 .global initializeFloat
 .global abs
@@ -72,6 +76,42 @@ getString12:
     bl string_12
     .string "[Kazuki Mario Wii]game->curFloor = %d\n\0"
     string_12:
+    mflr r3
+    mtlr r12
+    blr
+
+getString17:
+    mflr r12
+    bl string_17
+    .string "/KazukiRes/AnimTiles.bin\0\0\0"
+    string_17:
+    mflr r3
+    mtlr r12
+    blr
+
+getString18:
+    mflr r12
+    bl string_18
+    .string "[Kazuki Mario Wii]anim load fail\n\0\0"
+    string_18:
+    mflr r3
+    mtlr r12
+    blr
+
+getString19:
+    mflr r12
+    bl string_19
+    .string "[Kazuki Mario Wii]anim info incorrect\n\0"
+    string_19:
+    mflr r3
+    mtlr r12
+    blr
+
+getString20:
+    mflr r12
+    bl string_20
+    .string "BG_tex/%s\0\0"
+    string_20:
     mflr r3
     mtlr r12
     blr

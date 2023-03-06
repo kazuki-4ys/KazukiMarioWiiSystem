@@ -3,13 +3,17 @@
 void *my_malloc(unsigned int length){
     void (*OSReport)(const char*, ...) = (void*)OSREPORT;
     void*(*AllocFromGameHeap1)(unsigned int) = (void*)ALLOC_FROM_GAME_HEAP;
-    unsigned int buf = (unsigned int)AllocFromGameHeap1(length + 0x20);
+    void *buf = AllocFromGameHeap1(length);
     if(!buf){
         OSReport(getString9());
         return NULL;
     }
-    if((buf & 0x1F) == 0)return (void*)buf;
-    return (void*)((buf + 0x20) & (~0x1F));
+    return buf;
+}
+
+void my_free(void *ptr){
+    void (*FreeFromGameHeap1)(void*) = (void*)FREE_FROM_GAME_HEAP;
+    FreeFromGameHeap1(ptr);
 }
 
 void *my_malloc_via_allocator(unsigned int length){
@@ -129,4 +133,7 @@ void __main(void){
     injectBranchPatch((void*)0x801D5350, get_patch10_mem_alloc_from_allocator_hook_asm(), get_patch10_mem_alloc_from_allocator_hook_asm_end(), true);
     injectBranchPatch((void*)0x80068f54, get_patch11_bugmario_actorcreate_hook_asm(), get_patch11_bugmario_actorcreate_hook_asm_end(), true);
     injectBranchPatch((void*)0x80022AAC, get_patch12_sprite_208_block_actorcreate_hook_asm(), get_patch12_sprite_208_block_actorcreate_hook_asm_end(), true);
+    injectBranchPatch((void*)0x80087698, get_patch13_newer_do_tiles_asm(), get_patch13_newer_do_tiles_asm_end(), true);
+    injectBranchPatch((void*)0x80087508, get_patch14_newer_destroy_tiles_asm(), get_patch14_newer_destroy_tiles_asm_end(), true);
+    u32ToBytes((void*)0x80087544, 0x38801000);//AnimTileFrameHeapPatch
 }
