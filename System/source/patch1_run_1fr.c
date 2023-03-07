@@ -31,6 +31,8 @@ void patch1_run_1fr(void){
     //rev1
     if(bytesToU32((void*)0x80ABB07C) == 0xD0010010)injectBranchPatch((void*)0x80abb080, get_patch4_dokan_coin_spawner_asm(), (*myMemPtr)->patch4CodeEnd, true);
     if(bytesToU32((void*)0x80ABC414) == 0x38600053)injectBranchPatch((void*)0x80abc414, get_patch5_coin_lakitu_spawner_asm(), (*myMemPtr)->patch5CodeEnd, true);
+    if(bytesToU32((void*)0x80A4FB5C) == 0x38C00014)injectBranchPatch((void*)0x80A4FB5C, get_patch15_get_houdai_slide_search_killer_flag_asm(), (*myMemPtr)->patch15CodeEnd, true);
+    if(bytesToU32((void*)0x80a4c960) == 0x4B617CB1)injectBranchPatch((void*)0x80a4c960, get_patch16_houdai_slide_generate_killer_hook_asm(), (*myMemPtr)->patch16CodeEnd, true);
     //rev2
     if(bytesToU32((void*)0x80ABB09C) == 0xD0010010)injectBranchPatch((void*)0x80abb0a0, get_patch4_dokan_coin_spawner_asm(), (*myMemPtr)->patch4CodeEnd, true);
     if(bytesToU32((void*)0x80ABC434) == 0x38600053)injectBranchPatch((void*)0x80abc434, get_patch5_coin_lakitu_spawner_asm(), (*myMemPtr)->patch5CodeEnd, true);
