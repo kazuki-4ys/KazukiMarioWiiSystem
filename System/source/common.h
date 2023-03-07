@@ -173,6 +173,7 @@ const char *getString17(void);
 const char *getString18(void);
 const char *getString19(void);
 const char *getString20(void);
+unsigned char *getPipeFixNodeCalcBin(void);
 void ICInvalidateRange(void*, unsigned int);
 void *get_patch1_run_1fr_asm(void);
 void *get_patch1_run_1fr_asm_end(void);

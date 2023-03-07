@@ -120,6 +120,20 @@ unsigned char *getARCChildFilePointer(unsigned char* arcFile, const char *target
     return NULL;//targetFileが見つからなかった
 }
 
+void newerPipeFix(void){
+    //from newerSMBW
+    //https://github.com/Newer-Team/NewerSMBW/blob/cw/Kamek/bugfixes.yaml
+    unsigned char *pipeFixNodeCalcBin = getPipeFixNodeCalcBin();
+    unsigned int getPipeFixNodeCalcBinSize = 0x40;
+    for(unsigned int i = 0;i < getPipeFixNodeCalcBinSize;i++)*(((unsigned char*)((void*)0x800508F8)) + i) = *(pipeFixNodeCalcBin + i);
+    u32ToBytes((void*)0x80050A5C, 0x88030013);
+    u32ToBytes((void*)0x80050A60, 0x2C000000);
+    u32ToBytes((void*)0x80050A68, 0x2C000001);
+    u32ToBytes((void*)0x80050A70, 0x2C000002);
+    u32ToBytes((void*)0x80050A78, 0x2C000003);
+    u32ToBytes((void*)0x80050A88, 0x389F065C);
+}
+
 void __main(void){
     void (*OSReport)(const char*, ...) = (void*)0x8015F540;
     OSReport(getString6());
@@ -136,4 +150,5 @@ void __main(void){
     injectBranchPatch((void*)0x80087698, get_patch13_newer_do_tiles_asm(), get_patch13_newer_do_tiles_asm_end(), true);
     injectBranchPatch((void*)0x80087508, get_patch14_newer_destroy_tiles_asm(), get_patch14_newer_destroy_tiles_asm_end(), true);
     u32ToBytes((void*)0x80087544, 0x38801000);//AnimTileFrameHeapPatch
+    newerPipeFix();
 }

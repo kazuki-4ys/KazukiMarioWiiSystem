@@ -11,6 +11,7 @@
 .global getString18
 .global getString19
 .global getString20
+.global getPipeFixNodeCalcBin
 .global ICInvalidateRange
 .global initializeFloat
 .global abs
@@ -112,6 +113,15 @@ getString20:
     bl string_20
     .string "BG_tex/%s\0\0"
     string_20:
+    mflr r3
+    mtlr r12
+    blr
+
+getPipeFixNodeCalcBin:
+    mflr r12
+    bl PipeFixNodeCalcBin
+    .incbin "PipeFix_NodeCalc.bin" #絶対パスじゃないとエラー吐くかも
+    PipeFixNodeCalcBin:
     mflr r3
     mtlr r12
     blr
