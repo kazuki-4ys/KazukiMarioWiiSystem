@@ -42,14 +42,24 @@ void* patch11_bugmario_actorcreate_hook(unsigned short classID, int settings, VE
 				return CreateActor(EN_KURIBO, settings, pos, rot, layer);
 		}
 	}
-	if(bytesToU16(r27) == 208){//スプライト208
-		unsigned short extendedItemBlockClassID = (unsigned short)((settings & 0xFFFF) >> 4);
-		unsigned int extendedItemBlockSettings = bytesToU16(r27 + 6);
-		Actor *extendedItemBlock = CreateActor(classID, (int)(((unsigned int)settings) & 0xFFFF000F), pos, rot, layer);
-		if(extendedItemBlockClassID != 0){
-			extendedItemBlock->field_0x80 = (int)((((unsigned int)extendedItemBlockClassID) << 16) | extendedItemBlockSettings);
-		}
-		return extendedItemBlock;
+	unsigned short spriteId = bytesToU16(r27);
+	unsigned short extendedItemBlockClassID = (unsigned short)((settings & 0xFFFF) >> 4);
+	unsigned int extendedItemBlockSettings = bytesToU16(r27 + 6);
+	int houdaiSettngs = (int)(((unsigned int)settings) & 0xFFFF7FFF);
+	Actor *extendedItemBlock, *houdai;
+	switch(spriteId){
+		case 208://未使用ハテナブロック
+			extendedItemBlock = CreateActor(classID, (int)(((unsigned int)settings) & 0xFFFF000F), pos, rot, layer);
+			if(extendedItemBlockClassID != 0){
+				extendedItemBlock->field_0x80 = (int)((((unsigned int)extendedItemBlockClassID) << 16) | extendedItemBlockSettings);
+			}
+			return extendedItemBlock;
+		case 338://伸縮するキラー砲台
+			houdai = CreateActor(classID, houdaiSettngs, pos, rot, layer);
+			if(settings & 0x8000)houdai->field_0x80 = 1;
+			return houdai;
+		default:
+			return CreateActor(classID, settings, pos, rot, layer);
 	}
 	return CreateActor(classID, settings, pos, rot, layer);
 }

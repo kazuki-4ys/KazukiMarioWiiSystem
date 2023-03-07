@@ -24,6 +24,8 @@ void patch1_run_1fr(void){
         *myMemPtr = (myMemStruct*)AllocFromGameHeap1(sizeof(myMemStruct));
         (*myMemPtr)->patch4CodeEnd = get_patch4_dokan_coin_spawner_asm_end();
         (*myMemPtr)->patch5CodeEnd = get_patch5_coin_lakitu_spawner_asm_end();
+        (*myMemPtr)->patch15CodeEnd = get_patch15_get_houdai_slide_search_killer_flag_asm_end();
+        (*myMemPtr)->patch16CodeEnd = get_patch16_houdai_slide_generate_killer_hook_asm_end();
         //get_XXXXXXX_asm_end()はinjectBranchPatch()を呼び出した後には使えないので保存しておく
     }
     //rev1
@@ -32,6 +34,8 @@ void patch1_run_1fr(void){
     //rev2
     if(bytesToU32((void*)0x80ABB09C) == 0xD0010010)injectBranchPatch((void*)0x80abb0a0, get_patch4_dokan_coin_spawner_asm(), (*myMemPtr)->patch4CodeEnd, true);
     if(bytesToU32((void*)0x80ABC434) == 0x38600053)injectBranchPatch((void*)0x80abc434, get_patch5_coin_lakitu_spawner_asm(), (*myMemPtr)->patch5CodeEnd, true);
+    if(bytesToU32((void*)0x80A4FB7C) == 0x38C00014)injectBranchPatch((void*)0x80A4FB7C, get_patch15_get_houdai_slide_search_killer_flag_asm(), (*myMemPtr)->patch15CodeEnd, true);
+    if(bytesToU32((void*)0x80a4c980) == 0x4B617C91)injectBranchPatch((void*)0x80a4c980, get_patch16_houdai_slide_generate_killer_hook_asm(), (*myMemPtr)->patch16CodeEnd, true);
     unsigned char curLevelWorld = *((unsigned char*)((void*)CUR_LEVEL_WORLD)) + 1;
     unsigned char curLevelStage = *((unsigned char*)((void*)CUR_LEVEL_STAGE)) + 1;
     myMemStruct *myMem = *myMemPtr;

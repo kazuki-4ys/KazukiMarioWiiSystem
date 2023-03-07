@@ -131,6 +131,8 @@ typedef struct{
 typedef struct{
 	void *patch4CodeEnd;
 	void *patch5CodeEnd;
+	void *patch15CodeEnd;
+	void *patch16CodeEnd;
 	void *allocator;
     unsigned int *timerPtr;
 	bool hijackBrstm;
@@ -139,6 +141,7 @@ typedef struct{
 	unsigned char *courseArcFile;
 	mugendaiMeikyu mugenGame;
 	FileHandle animTilesBin;
+	bool killerHoudaiSearch;
 }myMemStruct;
 
 float initializeFloat(unsigned int);
@@ -203,5 +206,9 @@ void *get_patch13_newer_do_tiles_asm(void);
 void *get_patch13_newer_do_tiles_asm_end(void);
 void *get_patch14_newer_destroy_tiles_asm(void);
 void *get_patch14_newer_destroy_tiles_asm_end(void);
+void *get_patch15_get_houdai_slide_search_killer_flag_asm(void);
+void *get_patch15_get_houdai_slide_search_killer_flag_asm_end(void);
+void *get_patch16_houdai_slide_generate_killer_hook_asm(void);
+void *get_patch16_houdai_slide_generate_killer_hook_asm_end(void);
 
 #endif//_COMMON_H_
