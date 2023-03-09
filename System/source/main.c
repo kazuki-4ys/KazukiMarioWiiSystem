@@ -149,6 +149,7 @@ void __main(void){
     injectBranchPatch((void*)0x80022AAC, get_patch12_sprite_208_block_actorcreate_hook_asm(), get_patch12_sprite_208_block_actorcreate_hook_asm_end(), true);
     injectBranchPatch((void*)0x80087698, get_patch13_newer_do_tiles_asm(), get_patch13_newer_do_tiles_asm_end(), true);
     injectBranchPatch((void*)0x80087508, get_patch14_newer_destroy_tiles_asm(), get_patch14_newer_destroy_tiles_asm_end(), true);
+    injectBranchPatch((void*)0x8008e5c0, get_patch17_get_cur_area_asm(), get_patch17_get_cur_area_asm_end(), true);
     u32ToBytes((void*)0x80087544, 0x38801000);//AnimTileFrameHeapPatch
     newerPipeFix();
 }

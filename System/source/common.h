@@ -139,6 +139,7 @@ typedef struct{
 	unsigned char gameSpoofMusicId;
 	unsigned char myMusicId;
 	unsigned char *courseArcFile;
+	unsigned int curArea;
 	mugendaiMeikyu mugenGame;
 	FileHandle animTilesBin;
 	bool killerHoudaiSearch;
@@ -210,5 +211,7 @@ void *get_patch15_get_houdai_slide_search_killer_flag_asm(void);
 void *get_patch15_get_houdai_slide_search_killer_flag_asm_end(void);
 void *get_patch16_houdai_slide_generate_killer_hook_asm(void);
 void *get_patch16_houdai_slide_generate_killer_hook_asm_end(void);
+void *get_patch17_get_cur_area_asm(void);
+void *get_patch17_get_cur_area_asm_end(void);
 
 #endif//_COMMON_H_

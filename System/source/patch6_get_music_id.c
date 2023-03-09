@@ -34,14 +34,8 @@ unsigned char patch6_get_music_id(unsigned char musicId){
     unsigned char curLevelStage = *((unsigned char*)((void*)CUR_LEVEL_STAGE)) + 1;
 
 	//無限大迷宮用の処理
-	if(curLevelWorld == 1 && curLevelStage == 2){
-		if(musicId == 0x1D){
-			doMugendaiMeikyuGame(myMem, 2);
-			return after_course_getMusicForZone(0x1D, myMem);
-		}else if(musicId == 0x1E){
-			doMugendaiMeikyuGame(myMem, 3);
-			return after_course_getMusicForZone(0x1D, myMem);
-		}
+	if(curLevelWorld == 1 && curLevelStage == 2 && (myMem->curArea == 2 || myMem->curArea == 3)){
+		doMugendaiMeikyuGame(myMem, myMem->curArea);
 	}
 
 	return after_course_getMusicForZone(musicId, myMem);
