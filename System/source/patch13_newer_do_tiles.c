@@ -20,7 +20,7 @@ typedef struct{
 void patch13_newer_do_tiles(void* self){
     void (*OSReport)(const char*, ...) = (void*)OSREPORT;
     void (*snprintf)(char*, unsigned int, const char*, ...) = (void*)SNPRINTF;
-    void* (*BgTexMng__LoadAnimTile)(oid *self, int tileset, short tile, char *name, char *delays, char reverse) = (void*)BG_TEX_MNG_LOAD_ANIM_TILE;
+    void* (*BgTexMng__LoadAnimTile)(void *self, int tileset, short tile, char *name, char *delays, char reverse) = (void*)BG_TEX_MNG_LOAD_ANIM_TILE;
 	AnimDef_Header *header;
 
     myMemStruct *myMem = *((myMemStruct**)((void*)MY_MEM_PTR_PTR));
