@@ -11,6 +11,8 @@
 .global getString18
 .global getString19
 .global getString20
+.global getString21
+.global getString22
 .global getPipeFixNodeCalcBin
 .global ICInvalidateRange
 .global initializeFloat
@@ -113,6 +115,24 @@ getString20:
     bl string_20
     .string "BG_tex/%s\0\0"
     string_20:
+    mflr r3
+    mtlr r12
+    blr
+
+getString21:
+    mflr r12
+    bl string_21
+    .string "/Stage/Texture/%s.arc\0\0"
+    string_21:
+    mflr r3
+    mtlr r12
+    blr
+
+getString22:
+    mflr r12
+    bl string_22
+    .string "AnimTiles.bin\0\0"
+    string_22:
     mflr r3
     mtlr r12
     blr

@@ -24,6 +24,7 @@
 #define SPRINTF 0x802E15EC
 #define STRCMP 0x802E18C4
 #define MEMCPY 0x80004364
+#define STRLEN 0x802DC4AC
 #define GENERATE_RANDOM_NUMBER 0x800B2EE0
 #define SNPRINTF 0x802E14F8
 #define BG_TEX_MNG_LOAD_ANIM_TILE 0x80087B60
@@ -129,6 +130,11 @@ typedef struct{
 }FileHandle;
 
 typedef struct{
+	unsigned char *filePtr;
+	unsigned int length;
+}simpleFileStruct;
+
+typedef struct{
 	void *patch4CodeEnd;
 	void *patch5CodeEnd;
 	void *patch15CodeEnd;
@@ -140,6 +146,7 @@ typedef struct{
 	unsigned char myMusicId;
 	unsigned char *courseArcFile;
 	unsigned int curArea;
+	simpleFileStruct animTilesBinInTilesetArc[4];
 	mugendaiMeikyu mugenGame;
 	FileHandle animTilesBin;
 	bool killerHoudaiSearch;
@@ -162,6 +169,8 @@ unsigned int makeBranchInstructionByAddrDelta(int addrDelta);
 void injectBranchPatch(void *targetAddr, void *codeStart, void *codeEnd, bool doIcInvalidate);
 void makeInArchiveCourseFileName(char *dest, unsigned int destSize, int area, int layer);
 unsigned char *getARCChildFilePointer(unsigned char* arcFile, const char *targetFile, unsigned int *targetFileSize);
+unsigned char *getCourseBinBlock(unsigned char *courseBin, unsigned int blockIndex, unsigned int *blockSize);
+void getCurAreaTilesetsPath(myMemStruct *myMem, char *tilesetsPath, unsigned int tilesetPathLength);
 const char *getString6(void);
 const char *getString7(void);
 const char *getString8(void);
@@ -177,6 +186,8 @@ const char *getString17(void);
 const char *getString18(void);
 const char *getString19(void);
 const char *getString20(void);
+const char *getString21(void);
+const char *getString22(void);
 unsigned char *getPipeFixNodeCalcBin(void);
 void ICInvalidateRange(void*, unsigned int);
 void *get_patch1_run_1fr_asm(void);

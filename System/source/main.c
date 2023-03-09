@@ -120,6 +120,11 @@ unsigned char *getARCChildFilePointer(unsigned char* arcFile, const char *target
     return NULL;//targetFileが見つからなかった
 }
 
+unsigned char *getCourseBinBlock(unsigned char *courseBin, unsigned int blockIndex, unsigned int *blockSize){
+    return bytesToU32(courseBin + 4 * blockIndex * 2) + courseBin;
+    *blockSize = bytesToU32(courseBin + 4 * (blockIndex * 2 + 1));
+}
+
 void newerPipeFix(void){
     //from newerSMBW
     //https://github.com/Newer-Team/NewerSMBW/blob/cw/Kamek/bugfixes.yaml

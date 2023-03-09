@@ -14,7 +14,8 @@ void *LoadFile(FileHandle *handle, const char *name){
 
 	DVDFileInfo dvdhandle;
 	if (!DVDFastOpen(entryNum, &dvdhandle)) {
-		return 0;
+		handle->filePtr = NULL;
+		return NULL;
 	}
 
 	handle->length = dvdhandle.length;

@@ -50,11 +50,6 @@ void setPosToCourseEntrance(unsigned char *ent, unsigned int x, unsigned int y){
     u16ToBytes(ent + COURSE_ENTRANCE_Y_OFFSET, (unsigned short)y);
 }
 
-unsigned char *getCourseBinBlock(unsigned char *courseBin, unsigned int blockIndex, unsigned int *blockSize){
-    return bytesToU32(courseBin + 4 * blockIndex * 2) + courseBin;
-    *blockSize = bytesToU32(courseBin + 4 * (blockIndex * 2 + 1));
-}
-
 unsigned char *findEntranceByIdFromCourseBin(unsigned char id, unsigned char *courseBin, unsigned int courseBinSize){
     unsigned int block6Size;
     unsigned int curEntIndex = 0;
