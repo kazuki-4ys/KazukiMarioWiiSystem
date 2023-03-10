@@ -20,7 +20,7 @@ void patch1_run_1fr(void){
     void(*ExitStage)(unsigned int, unsigned int, unsigned int, unsigned int) = (void*)EXIT_STAGE;
     void*(*AllocFromGameHeap1)(unsigned int) = (void*)0x801626D0;
     myMemStruct **myMemPtr = ((myMemStruct**)((void*)MY_MEM_PTR_PTR));
-    if(!(*myMemPtr)){//first, we need to allocate memory fou us.
+    if(!(*myMemPtr)){//自分が使うためのメモリを確保
         *myMemPtr = (myMemStruct*)AllocFromGameHeap1(sizeof(myMemStruct));
         (*myMemPtr)->patch4CodeEnd = get_patch4_dokan_coin_spawner_asm_end();
         (*myMemPtr)->patch5CodeEnd = get_patch5_coin_lakitu_spawner_asm_end();
@@ -43,7 +43,14 @@ void patch1_run_1fr(void){
     myMemStruct *myMem = *myMemPtr;
     if(curLevelWorld == 1 && curLevelStage == 2){//1-2は制限時間無限&イベント64が作動したらコースクリア
         setStageTimerRaw(0x003E6988);
-        if(isEventEnabled(64))ExitStage(3, 0, BEAT_LEVEL, MARIO_WIPE);;
+        if(isEventEnabled(64))ExitStage(3, 0, BEAT_LEVEL, MARIO_WIPE);
+    }
+    if(curLevelWorld == 1 && curLevelStage == 3){//1-3
+        if(myMem->getMusicIdCalledCount < 2)*((unsigned char*)((void*)0x80354C03)) |= 2;
+        void *yoshi = (void*)FindActorByType(YOSHI, NULL);
+        if(yoshi){
+            if(*((unsigned char*)yoshi + 0xD5) == 0x78)setStageTimerRaw(40960);
+        }
     }
     return;
 }

@@ -37,6 +37,6 @@ unsigned char patch6_get_music_id(unsigned char musicId){
 	if(curLevelWorld == 1 && curLevelStage == 2 && (myMem->curArea == 2 || myMem->curArea == 3)){
 		doMugendaiMeikyuGame(myMem, myMem->curArea);
 	}
-
+	myMem->getMusicIdCalledCount++;
 	return after_course_getMusicForZone(musicId, myMem);
 }

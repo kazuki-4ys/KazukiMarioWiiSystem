@@ -34,6 +34,11 @@ Actor *CreateActor(unsigned short classID, int settings, VEC3 *pos, void* rot, c
     return create_actor_ptr(classID, settings, pos, rot, layer);
 }
 
+Actor *FindActorByType(unsigned short classID, Actor *startFrom){
+    Actor* (*find_actor_by_type_ptr)(unsigned short, Actor*) = (void*)FIND_ACTOR_BY_TYPE;
+    return find_actor_by_type_ptr(classID, startFrom);
+}
+
 void setStageTimerRaw(int time){
     unknownStageTimerStruct *ustsp = *((unknownStageTimerStruct**)((void*)UNKNOWN_STAGE_TIMER_STRUCT_PTR_PTR));
     if(!ustsp)return;
@@ -155,6 +160,7 @@ void __main(void){
     injectBranchPatch((void*)0x80087698, get_patch13_newer_do_tiles_asm(), get_patch13_newer_do_tiles_asm_end(), true);
     injectBranchPatch((void*)0x80087508, get_patch14_newer_destroy_tiles_asm(), get_patch14_newer_destroy_tiles_asm_end(), true);
     injectBranchPatch((void*)0x8008e5c0, get_patch17_get_cur_area_asm(), get_patch17_get_cur_area_asm_end(), true);
+    injectBranchPatch((void*)0x800e3980, get_patch18_compare_time_100_hook_asm(), get_patch18_compare_time_100_hook_asm_end(), true);
     u32ToBytes((void*)0x80087544, 0x38801000);//AnimTileFrameHeapPatch
     newerPipeFix();
 }

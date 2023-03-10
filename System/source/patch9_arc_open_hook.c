@@ -21,4 +21,6 @@ void patch9_arc_open_hook(unsigned char **r3, char fileName){
     //無限大迷宮用の処理
     destroyMugendaiMeikyuGame(myMem);
     if(curLevelWorld == 1 && curLevelStage == 2)createMugendaiMeikyuGame(myMem);
+
+    if(curLevelWorld == 1 && curLevelStage == 3)myMem->getMusicIdCalledCount = 0;
 }

@@ -17,6 +17,7 @@
 #define ALLOC_FROM_GAME_HEAP 0x801626D0
 #define MEM_ALLOC_FROM_ALLOCATOR 0x801D5350
 #define CREATE_ACTOR 0x80064610
+#define FIND_ACTOR_BY_TYPE 0x80162B60
 #define DVD_CONVERT_PATH_TO_ENTRY_NUM 0x801CA490
 #define DVD_FAST_OPEN 0x801CA7A0
 #define DVD_READ_PRIO 0x801CA930
@@ -147,6 +148,7 @@ typedef struct{
 	unsigned char *courseArcFile;
 	unsigned int curArea;
 	simpleFileStruct animTilesBinInTilesetArc[4];
+	unsigned int getMusicIdCalledCount;
 	mugendaiMeikyu mugenGame;
 	FileHandle animTilesBin;
 	bool killerHoudaiSearch;
@@ -159,6 +161,7 @@ void *my_malloc(unsigned int length);
 void my_free(void *ptr);
 void *my_malloc_via_allocator(unsigned int length);
 Actor *CreateActor(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer);
+Actor *FindActorByType(unsigned short classID, Actor *startFrom);
 void setStageTimerRaw(int time);
 unsigned int random(unsigned int max);
 void u32ToBytes(unsigned char *mem, unsigned int val);
@@ -224,5 +227,7 @@ void *get_patch16_houdai_slide_generate_killer_hook_asm(void);
 void *get_patch16_houdai_slide_generate_killer_hook_asm_end(void);
 void *get_patch17_get_cur_area_asm(void);
 void *get_patch17_get_cur_area_asm_end(void);
+void *get_patch18_compare_time_100_hook_asm(void);
+void *get_patch18_compare_time_100_hook_asm_end(void);
 
 #endif//_COMMON_H_
