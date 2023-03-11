@@ -5,6 +5,14 @@ void *get_patch4_dokan_coin_spawner_asm_end(void);
 void *get_patch5_coin_lakitu_spawner_asm(void);
 void *get_patch5_coin_lakitu_spawner_asm_end(void);
 
+void anotherRemoveTitleReplay(void){
+    //from AnotherSMBW
+    //https://github.com/Newer-Team/NewerSMBW/blob/cw/Kamek/anotherhax.yaml
+    unsigned int writeNopStartAddr = 0x80781E8C;
+    if(*((unsigned char*)((void*)0x80000007)) == 2)writeNopStartAddr = 0x80781ECC;
+    for(unsigned int i = 0;i < 3;i++)u32ToBytes((void*)(writeNopStartAddr + i * 4), 0x60000000);
+}
+
 bool isEventEnabled(unsigned char eventId){//特定のイベントが作動したかチェックEvent IDは最大64まで((多分)
     if(eventId == 0 || eventId > 64)return false;//0は常に無効(多分)
     unsigned char *eventTable = *((unsigned char**)((void*)EVENT_TABLE));
@@ -38,6 +46,7 @@ void patch1_run_1fr(void){
     if(bytesToU32((void*)0x80ABC434) == 0x38600053)injectBranchPatch((void*)0x80abc434, get_patch5_coin_lakitu_spawner_asm(), (*myMemPtr)->patch5CodeEnd, true);
     if(bytesToU32((void*)0x80A4FB7C) == 0x38C00014)injectBranchPatch((void*)0x80A4FB7C, get_patch15_get_houdai_slide_search_killer_flag_asm(), (*myMemPtr)->patch15CodeEnd, true);
     if(bytesToU32((void*)0x80a4c980) == 0x4B617C91)injectBranchPatch((void*)0x80a4c980, get_patch16_houdai_slide_generate_killer_hook_asm(), (*myMemPtr)->patch16CodeEnd, true);
+    anotherRemoveTitleReplay();
     unsigned char curLevelWorld = *((unsigned char*)((void*)CUR_LEVEL_WORLD)) + 1;
     unsigned char curLevelStage = *((unsigned char*)((void*)CUR_LEVEL_STAGE)) + 1;
     myMemStruct *myMem = *myMemPtr;
