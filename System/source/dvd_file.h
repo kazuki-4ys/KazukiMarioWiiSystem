@@ -3,7 +3,7 @@
 
 #include "common.h"
 
-void *LoadFile(FileHandle *handle, const char *name);
-bool FreeFile(FileHandle *handle);
+void *LoadFile(simpleFileStruct *handle, const char *name);
+bool FreeFile(simpleFileStruct *handle);
 
 #endif//_DVD_FILE_H_

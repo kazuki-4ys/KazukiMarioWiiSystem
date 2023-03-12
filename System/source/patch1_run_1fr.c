@@ -39,7 +39,7 @@ void patch1_run_1fr(void){
     void*(*AllocFromGameHeap1)(unsigned int) = (void*)0x801626D0;
     myMemStruct **myMemPtr = ((myMemStruct**)((void*)MY_MEM_PTR_PTR));
     if(!(*myMemPtr)){//自分が使うためのメモリを確保
-        *myMemPtr = (myMemStruct*)AllocFromGameHeap1(sizeof(myMemStruct));
+        *myMemPtr = (myMemStruct*)my_malloc_via_egg(sizeof(myMemStruct));
         (*myMemPtr)->patch4CodeEnd = get_patch4_dokan_coin_spawner_asm_end();
         (*myMemPtr)->patch5CodeEnd = get_patch5_coin_lakitu_spawner_asm_end();
         (*myMemPtr)->patch15CodeEnd = get_patch15_get_houdai_slide_search_killer_flag_asm_end();

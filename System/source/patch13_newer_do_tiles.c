@@ -36,7 +36,7 @@ void getCurAreaTilesetsPath(myMemStruct *myMem, char *tilesetsPath, unsigned int
 void getAnimTilesBinInTilesetArc(myMemStruct *myMem, char *tilesetsPath, unsigned int tilesetPathLength, unsigned int index){
 	void *(*memcpy)(void*, void*, unsigned int) = (void*)MEMCPY;
 	myMem->animTilesBinInTilesetArc[index].filePtr = NULL;
-	FileHandle arcFile;
+	simpleFileStruct arcFile;
 	LoadFile(&arcFile, tilesetsPath + index * tilesetPathLength);
 	if(!arcFile.filePtr)return;
 	unsigned int animTilesBinSize;
@@ -46,7 +46,7 @@ void getAnimTilesBinInTilesetArc(myMemStruct *myMem, char *tilesetsPath, unsigne
 		FreeFile(&arcFile);
 		return;
 	}
-	myMem->animTilesBinInTilesetArc[index].filePtr = my_malloc(animTilesBinSize);
+	myMem->animTilesBinInTilesetArc[index].filePtr = my_malloc_via_egg(animTilesBinSize);
 	myMem->animTilesBinInTilesetArc[index].length = animTilesBinSize;
 	memcpy(myMem->animTilesBinInTilesetArc[index].filePtr, animTilesBin, animTilesBinSize);
 	FreeFile(&arcFile);

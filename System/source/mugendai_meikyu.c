@@ -588,37 +588,37 @@ void createMugendaiMeikyuGame(myMemStruct *myMem){//コースデータバック�
 
     makeInArchiveCourseFileName(inArcCourseFileName, 128, 2, -1);
     fileData = getARCChildFilePointer(arcFilePtr, inArcCourseFileName, &fileSize);
-    myMem->mugenGame.course2Bin = my_malloc_via_allocator(fileSize);
+    myMem->mugenGame.course2Bin = my_malloc_via_egg(fileSize);
     memcpy(myMem->mugenGame.course2Bin, fileData, fileSize);
     myMem->mugenGame.course2BinSize = fileSize;
 
     makeInArchiveCourseFileName(inArcCourseFileName, 128, 2, 1);
     fileData = getARCChildFilePointer(arcFilePtr, inArcCourseFileName, &fileSize);
-    myMem->mugenGame.course2BgdatL1Bin = my_malloc_via_allocator(fileSize);
+    myMem->mugenGame.course2BgdatL1Bin = my_malloc_via_egg(fileSize);
     memcpy(myMem->mugenGame.course2BgdatL1Bin, fileData, fileSize);
     myMem->mugenGame.course2BgdatL1BinSize = fileSize;
 
     makeInArchiveCourseFileName(inArcCourseFileName, 128, 2, 2);
     fileData = getARCChildFilePointer(arcFilePtr, inArcCourseFileName, &fileSize);
-    myMem->mugenGame.course2BgdatL2Bin = my_malloc_via_allocator(fileSize);
+    myMem->mugenGame.course2BgdatL2Bin = my_malloc_via_egg(fileSize);
     memcpy(myMem->mugenGame.course2BgdatL2Bin, fileData, fileSize);
     myMem->mugenGame.course2BgdatL2BinSize = fileSize;
 
     makeInArchiveCourseFileName(inArcCourseFileName, 128, 3, -1);
     fileData = getARCChildFilePointer(arcFilePtr, inArcCourseFileName, &fileSize);
-    myMem->mugenGame.course3Bin = my_malloc_via_allocator(fileSize);
+    myMem->mugenGame.course3Bin = my_malloc_via_egg(fileSize);
     memcpy(myMem->mugenGame.course3Bin, fileData, fileSize);
     myMem->mugenGame.course3BinSize = fileSize;
 
     makeInArchiveCourseFileName(inArcCourseFileName, 128, 3, 1);
     fileData = getARCChildFilePointer(arcFilePtr, inArcCourseFileName, &fileSize);
-    myMem->mugenGame.course3BgdatL1Bin = my_malloc_via_allocator(fileSize);
+    myMem->mugenGame.course3BgdatL1Bin = my_malloc_via_egg(fileSize);
     memcpy(myMem->mugenGame.course3BgdatL1Bin, fileData, fileSize);
     myMem->mugenGame.course3BgdatL1BinSize = fileSize;
 
     makeInArchiveCourseFileName(inArcCourseFileName, 128, 3, 2);
     fileData = getARCChildFilePointer(arcFilePtr, inArcCourseFileName, &fileSize);
-    myMem->mugenGame.course3BgdatL2Bin = my_malloc_via_allocator(fileSize);
+    myMem->mugenGame.course3BgdatL2Bin = my_malloc_via_egg(fileSize);
     memcpy(myMem->mugenGame.course3BgdatL2Bin, fileData, fileSize);
     myMem->mugenGame.course3BgdatL2BinSize = fileSize;
 }

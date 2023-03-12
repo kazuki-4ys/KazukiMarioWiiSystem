@@ -6,7 +6,7 @@
 
 void freeAnimTilesBinInTilesetArc(myMemStruct *myMem, unsigned int index){
 	if(myMem->animTilesBinInTilesetArc[index].filePtr){
-		my_free(myMem->animTilesBinInTilesetArc[index].filePtr);
+		my_free_via_egg(myMem->animTilesBinInTilesetArc[index].filePtr);
 		myMem->animTilesBinInTilesetArc[index].filePtr = NULL;
 	}
 }

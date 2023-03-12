@@ -23,6 +23,34 @@ void *my_realloc(void *ptr, unsigned int size){
     void *newPtr = my_malloc(size);
     if(!newPtr)return NULL;
     memcpy(newPtr, ptr, lastSize);
+    my_free(ptr);
+    return newPtr;
+}
+
+void *my_malloc_via_egg(unsigned int length){
+    void (*OSReport)(const char*, ...) = (void*)OSREPORT;
+    void* (*Egg__Heap__Alloc)(unsigned int, unsigned int, void*) = (void*)EGG_HEAP_ALLOC;
+    void *buf = Egg__Heap__Alloc(length, 0x20, *((void**)((void*)ARCHIVE_HEAP)));
+    if(!buf){
+        OSReport(getString9());
+        return NULL;
+    }
+    return buf;
+}
+
+void *my_free_via_egg(void *ptr){
+    void* (*Egg__Heap__Free)(void*, void*) = (void*)EGG_HEAP_FREE;
+    Egg__Heap__Free(ptr, *((void**)((void*)ARCHIVE_HEAP)));
+}
+
+void *my_realloc_via_egg(void *ptr, unsigned int size){
+    void *(*memcpy)(void*, void*, unsigned int) = (void*)MEMCPY;
+    if(!ptr)return NULL;
+    unsigned int lastSize = bytesToU32((unsigned char*)ptr - 0xC);
+    void *newPtr = my_malloc_via_egg(size);
+    if(!newPtr)return NULL;
+    memcpy(newPtr, ptr, lastSize);
+    my_free_via_egg(ptr);
     return newPtr;
 }
 

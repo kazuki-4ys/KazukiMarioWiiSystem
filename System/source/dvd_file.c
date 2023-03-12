@@ -3,8 +3,7 @@
 
 #include "dvd_file.h"
 
-void *LoadFile(FileHandle *handle, const char *name){
-    void* (*EGG__Heap__alloc)(unsigned int, unsigned int, void*) = (void*)EGG_HEAP_ALLOC;
+void *LoadFile(simpleFileStruct *handle, const char *name){
     int (*DVDConvertPathToEntrynum)(const char*) = (void*)DVD_CONVERT_PATH_TO_ENTRY_NUM;
     int (*DVDFastOpen)(int, DVDFileInfo*) = (void*)DVD_FAST_OPEN;
     int (*DVDReadPrio)(DVDFileInfo*, void*, unsigned int, unsigned int, unsigned int) = (void*)DVD_READ_PRIO;
@@ -19,16 +18,8 @@ void *LoadFile(FileHandle *handle, const char *name){
 	}
 
 	handle->length = dvdhandle.length;
-	//handle->filePtr = EGG__Heap__alloc(handle->length, 0x20, (void*)ARCHIVE_HEAP);
-	handle->allocPtr = my_malloc(handle->length + 0x1F);
-	unsigned int ptr = (unsigned int)handle->allocPtr;
-	if(ptr & 0x1F){
-		ptr = ptr & 0xFFFFFFE0;
-		ptr += 0x20;
-	}
-	handle->filePtr = (void*)ptr;
-
-	int ret = DVDReadPrio(&dvdhandle, handle->filePtr, handle->length, 0, 2);
+	handle->filePtr = my_malloc_via_egg(handle->length);
+	DVDReadPrio(&dvdhandle, handle->filePtr, handle->length, 0, 2);
 
 	DVDClose(&dvdhandle);
 
@@ -36,13 +27,10 @@ void *LoadFile(FileHandle *handle, const char *name){
 	return handle->filePtr;
 }
 
-bool FreeFile(FileHandle *handle){
-    void (*EGG__Heap__free)(void*, void*) = (void*)EGG_HEAP_FREE;
+bool FreeFile(simpleFileStruct *handle){
 	if (!handle) return false;
-
 	if (handle->filePtr) {
-		//EGG__Heap__free(handle->filePtr, (void*)ARCHIVE_HEAP);
-		my_free(handle->allocPtr);
+		my_free_via_egg(handle->filePtr);
 	}
 
 	handle->filePtr = 0;

@@ -137,12 +137,6 @@ typedef struct{
 }mugendaiMeikyu;
 
 typedef struct{
-	void *allocPtr;
-	void *filePtr;
-	int length;
-}FileHandle;
-
-typedef struct{
 	unsigned char *filePtr;
 	unsigned int length;
 }simpleFileStruct;
@@ -162,7 +156,7 @@ typedef struct{
 	simpleFileStruct animTilesBinInTilesetArc[4];
 	unsigned int getMusicIdCalledCount;
 	mugendaiMeikyu mugenGame;
-	FileHandle animTilesBin;
+	simpleFileStruct animTilesBin;
 	bool killerHoudaiSearch;
 	bool isBossClearBgmPlayed;
 	int bossClearStageExitTimer;
@@ -174,6 +168,9 @@ unsigned int floatToInt(float);
 void *my_malloc(unsigned int length);
 void my_free(void *ptr);
 void *my_realloc(void *ptr, unsigned int size);
+void *my_malloc_via_egg(unsigned int length);
+void *my_free_via_egg(void *ptr);
+void *my_realloc_via_egg(void *ptr, unsigned int size);
 void *my_malloc_via_allocator(unsigned int length);
 Actor *CreateActor(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer);
 Actor *FindActorByType(unsigned short classID, Actor *startFrom);
