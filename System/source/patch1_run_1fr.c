@@ -24,6 +24,16 @@ bool isEventEnabled(unsigned char eventId){//特定のイベントが作動し�
     return false;
 }
 
+Actor *FindActorByTypeAndSettings(unsigned short type, unsigned int settings){
+    Actor *act = NULL;
+    while(true){
+        act = FindActorByType(type, act);
+        if(!act)return NULL;
+        if(act->settings == settings)return act;
+    }
+    return NULL;
+}
+
 void patch1_run_1fr(void){
     void(*ExitStage)(unsigned int, unsigned int, unsigned int, unsigned int) = (void*)EXIT_STAGE;
     void*(*AllocFromGameHeap1)(unsigned int) = (void*)0x801626D0;
@@ -35,6 +45,7 @@ void patch1_run_1fr(void){
         (*myMemPtr)->patch15CodeEnd = get_patch15_get_houdai_slide_search_killer_flag_asm_end();
         (*myMemPtr)->patch16CodeEnd = get_patch16_houdai_slide_generate_killer_hook_asm_end();
         //get_XXXXXXX_asm_end()はinjectBranchPatch()を呼び出した後には使えないので保存しておく
+        (*myMemPtr)->bossClearStageExitTimer = -1;
     }
     //rev1
     if(bytesToU32((void*)0x80ABB07C) == 0xD0010010)injectBranchPatch((void*)0x80abb080, get_patch4_dokan_coin_spawner_asm(), (*myMemPtr)->patch4CodeEnd, true);
@@ -50,9 +61,24 @@ void patch1_run_1fr(void){
     unsigned char curLevelWorld = *((unsigned char*)((void*)CUR_LEVEL_WORLD)) + 1;
     unsigned char curLevelStage = *((unsigned char*)((void*)CUR_LEVEL_STAGE)) + 1;
     myMemStruct *myMem = *myMemPtr;
+    if(myMem->bossClearStageExitTimer == 0){
+        myMem->bossClearStageExitTimer = -1;
+        ExitStage(3, 0, BEAT_LEVEL, MARIO_WIPE);
+    }
+    if(myMem->bossClearStageExitTimer > 0){
+        void* (*GetPlayerOrYoshi)(int) = (void*)GET_PLAYER_OR_YOSHI;
+        void (*setAnimePlayStandardType)(void*, int) = (void*)SET_ANIME_PLAY_STANDARD_TYPE;
+        for(int i = 0;i < 4;i++){
+            void *ptr = GetPlayerOrYoshi(i);
+            if(ptr)setAnimePlayStandardType(ptr, 2);
+        }
+        myMem->bossClearStageExitTimer--;
+    }
     if(curLevelWorld == 1 && curLevelStage == 2){//1-2は制限時間無限&イベント64が作動したらコースクリア
         setStageTimerRaw(0x003E6988);
-        if(isEventEnabled(64))ExitStage(3, 0, BEAT_LEVEL, MARIO_WIPE);
+        if(isEventEnabled(64)){
+            bossClear();
+        }
     }
     if(curLevelWorld == 1 && curLevelStage == 3){//1-3
         if(myMem->getMusicIdCalledCount < 2)*((unsigned char*)((void*)0x80354C03)) |= 2;

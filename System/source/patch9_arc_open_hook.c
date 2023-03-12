@@ -17,6 +17,8 @@ void patch9_arc_open_hook(unsigned char **r3, char fileName){
     if(!course1Bin){
         return;
     }
+    myMem->bossClearStageExitTimer = -1;
+    myMem->isBossClearBgmPlayed = false;
     myMem->courseArcFile = arcFilePtr;
     //無限大迷宮用の処理
     destroyMugendaiMeikyuGame(myMem);

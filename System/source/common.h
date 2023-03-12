@@ -29,6 +29,14 @@
 #define GENERATE_RANDOM_NUMBER 0x800B2EE0
 #define SNPRINTF 0x802E14F8
 #define BG_TEX_MNG_LOAD_ANIM_TILE 0x80087B60
+#define PLAY_SOUND_WITH_FUNCTION_B4 0x80194EA0
+#define SOUND_RELATED_CLASS 0x8042A1A8
+#define STOP_BGM_MUSIC_REV1 0x807DB1C0
+#define STOP_BGM_MUSIC_REV2 0x807DB1D0
+#define GET_PLAYER_OR_YOSHI 0x8005FB90
+#define SET_ANIME_PLAY_STANDARD_TYPE 0x80052290
+#define MAKE_MARIO_ENTER_DEMO_MODE_REV1 0x807C7CE0
+#define MAKE_MARIO_ENTER_DEMO_MODE_REV2 0x807C7CF0
 #define UNKNOWN_STAGE_TIMER_STRUCT_PTR_PTR 0x80429D90
 
 #define NULL 0
@@ -37,6 +45,10 @@
 #define false 0
 
 typedef unsigned char bool;
+
+typedef struct{
+	void *data;
+}nw4r__snd__SoundHandle_Struct;
 
 typedef struct{
     unsigned char unk0[0x34];
@@ -152,6 +164,8 @@ typedef struct{
 	mugendaiMeikyu mugenGame;
 	FileHandle animTilesBin;
 	bool killerHoudaiSearch;
+	bool isBossClearBgmPlayed;
+	int bossClearStageExitTimer;
 }myMemStruct;
 
 float initializeFloat(unsigned int);
@@ -159,11 +173,15 @@ float abs(float);
 unsigned int floatToInt(float);
 void *my_malloc(unsigned int length);
 void my_free(void *ptr);
+void *my_realloc(void *ptr, unsigned int size);
 void *my_malloc_via_allocator(unsigned int length);
 Actor *CreateActor(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer);
 Actor *FindActorByType(unsigned short classID, Actor *startFrom);
 void setStageTimerRaw(int time);
 unsigned int random(unsigned int max);
+void PlaySoundWithFunctionB4(void *spc, nw4r__snd__SoundHandle_Struct *handle, int id, int unk);
+void StopBGMMusic(void);
+void bossClear(void);
 void u32ToBytes(unsigned char *mem, unsigned int val);
 void u16ToBytes(unsigned char *mem, unsigned short val);
 unsigned int bytesToU32(unsigned char *mem);

@@ -16,6 +16,16 @@ void my_free(void *ptr){
     FreeFromGameHeap1(ptr);
 }
 
+void *my_realloc(void *ptr, unsigned int size){
+    void *(*memcpy)(void*, void*, unsigned int) = (void*)MEMCPY;
+    if(!ptr)return NULL;
+    unsigned int lastSize = bytesToU32((unsigned char*)ptr - 0xC);
+    void *newPtr = my_malloc(size);
+    if(!newPtr)return NULL;
+    memcpy(newPtr, ptr, lastSize);
+    return newPtr;
+}
+
 void *my_malloc_via_allocator(unsigned int length){
     void (*OSReport)(const char*, ...) = (void*)OSREPORT;
     void*(*MEMAllocFromAllocator)(void*, unsigned int) = (void*)MEM_ALLOC_FROM_ALLOCATOR;
@@ -27,6 +37,10 @@ void *my_malloc_via_allocator(unsigned int length){
         return NULL;
     }
     return dest;
+}
+
+unsigned char getDiscRevision(void){
+    return *((unsigned char*)((void*)0x80000007));
 }
 
 Actor *CreateActor(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer){
@@ -48,6 +62,36 @@ void setStageTimerRaw(int time){
 unsigned int random(unsigned int max){
     unsigned int(*GenerateRandomNumber)(int) = (void*)GENERATE_RANDOM_NUMBER;
     return GenerateRandomNumber(max);
+}
+
+
+void PlaySoundWithFunctionB4(void *spc, nw4r__snd__SoundHandle_Struct *handle, int id, int unk){
+    void (*PlaySoundWithFunctionB4_ptr)(void*, nw4r__snd__SoundHandle_Struct*, int, int) = (void*)PLAY_SOUND_WITH_FUNCTION_B4;
+    PlaySoundWithFunctionB4_ptr(spc, handle, id, unk);
+}
+
+void StopBGMMusic(void){
+    void (*StopBGMMusic_ptr)(void) = (void*)STOP_BGM_MUSIC_REV1;
+    if(getDiscRevision() == 2)StopBGMMusic_ptr = (void*)STOP_BGM_MUSIC_REV2;
+    StopBGMMusic_ptr();
+}
+
+void MakeMarioEnterDemoMode(){
+    void (*MakeMarioEnterDemoMode_ptr)(void) = (void*)MAKE_MARIO_ENTER_DEMO_MODE_REV1;
+    if(getDiscRevision() == 2)MakeMarioEnterDemoMode_ptr = (void*)MAKE_MARIO_ENTER_DEMO_MODE_REV2;
+    MakeMarioEnterDemoMode_ptr();
+}
+
+void bossClear(void){
+    nw4r__snd__SoundHandle_Struct handle;
+    myMemStruct **myMemPtr = ((myMemStruct**)((void*)MY_MEM_PTR_PTR));
+    myMemStruct *myMem = *myMemPtr;
+    if(myMem->isBossClearBgmPlayed == true)return;
+    myMem->isBossClearBgmPlayed = true;
+    MakeMarioEnterDemoMode();
+    StopBGMMusic();
+    PlaySoundWithFunctionB4(*((void**)SOUND_RELATED_CLASS), &handle, 1882, 1);
+    myMem->bossClearStageExitTimer = 300;
 }
 
 void u32ToBytes(unsigned char *mem, unsigned int val){
