@@ -146,7 +146,6 @@ typedef struct{
 	void *patch5CodeEnd;
 	void *patch15CodeEnd;
 	void *patch16CodeEnd;
-	void *allocator;
     unsigned int *timerPtr;
 	bool hijackBrstm;
 	unsigned char gameSpoofMusicId;
@@ -226,8 +225,6 @@ void *get_patch8_auto_brsar_patch_asm(void);
 void *get_patch8_auto_brsar_patch_asm_end(void);
 void *get_patch9_arc_open_hook_asm(void);
 void *get_patch9_arc_open_hook_asm_end(void);
-void *get_patch10_mem_alloc_from_allocator_hook_asm(void);
-void *get_patch10_mem_alloc_from_allocator_hook_asm_end(void);
 void *get_patch11_bugmario_actorcreate_hook_asm(void);
 void *get_patch11_bugmario_actorcreate_hook_asm_end(void);
 void *get_patch12_sprite_208_block_actorcreate_hook_asm(void);

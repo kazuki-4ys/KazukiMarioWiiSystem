@@ -80,12 +80,12 @@ void patch1_run_1fr(void){
             bossClear();
         }
     }
-    if(curLevelWorld == 1 && curLevelStage == 3){//1-3
+    /*if(curLevelWorld == 1 && curLevelStage == 3){//1-3
         if(myMem->getMusicIdCalledCount < 2)*((unsigned char*)((void*)0x80354C03)) |= 2;
         void *yoshi = (void*)FindActorByType(YOSHI, NULL);
         if(yoshi){
             if(*((unsigned char*)yoshi + 0xD5) == 0x78)setStageTimerRaw(40960);
         }
-    }
+    }*/
     return;
 }
