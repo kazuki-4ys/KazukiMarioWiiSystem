@@ -201,6 +201,8 @@ void newerPipeFix(void){
     u32ToBytes((void*)0x80050A70, 0x2C000002);
     u32ToBytes((void*)0x80050A78, 0x2C000003);
     u32ToBytes((void*)0x80050A88, 0x389F065C);
+    ICInvalidateRange((void*)0x800508E0, 0x60);
+    ICInvalidateRange((void*)0x80050A40, 0x60);
 }
 
 void __main(void){
@@ -215,10 +217,11 @@ void __main(void){
     injectBranchPatch((void*)0x8019F510, get_patch9_arc_open_hook_asm(), get_patch9_arc_open_hook_asm_end(), true);
     injectBranchPatch((void*)0x80068f54, get_patch11_bugmario_actorcreate_hook_asm(), get_patch11_bugmario_actorcreate_hook_asm_end(), true);
     injectBranchPatch((void*)0x80022AAC, get_patch12_sprite_208_block_actorcreate_hook_asm(), get_patch12_sprite_208_block_actorcreate_hook_asm_end(), true);
-    injectBranchPatch((void*)0x80087698, get_patch13_newer_do_tiles_asm(), get_patch13_newer_do_tiles_asm_end(), true);
-    injectBranchPatch((void*)0x80087508, get_patch14_newer_destroy_tiles_asm(), get_patch14_newer_destroy_tiles_asm_end(), true);
+    //injectBranchPatch((void*)0x80087698, get_patch13_newer_do_tiles_asm(), get_patch13_newer_do_tiles_asm_end(), true);
+    //injectBranchPatch((void*)0x80087508, get_patch14_newer_destroy_tiles_asm(), get_patch14_newer_destroy_tiles_asm_end(), true);
     injectBranchPatch((void*)0x8008e5c0, get_patch17_get_cur_area_asm(), get_patch17_get_cur_area_asm_end(), true);
     injectBranchPatch((void*)0x800e3980, get_patch18_compare_time_100_hook_asm(), get_patch18_compare_time_100_hook_asm_end(), true);
     u32ToBytes((void*)0x80087544, 0x38801000);//AnimTileFrameHeapPatch
+    ICInvalidateRange((void*)0x80087540, 0x20);
     newerPipeFix();
 }

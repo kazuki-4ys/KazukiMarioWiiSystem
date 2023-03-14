@@ -11,6 +11,7 @@ void anotherRemoveTitleReplay(void){
     unsigned int writeNopStartAddr = 0x80781E8C;
     if(*((unsigned char*)((void*)0x80000007)) == 2)writeNopStartAddr = 0x80781ECC;
     for(unsigned int i = 0;i < 3;i++)u32ToBytes((void*)(writeNopStartAddr + i * 4), 0x60000000);
+    ICInvalidateRange((void*)0x80781E80, 0x80);
 }
 
 bool isEventEnabled(unsigned char eventId){//特定のイベントが作動したかチェックEvent IDは最大64まで((多分)
@@ -80,12 +81,12 @@ void patch1_run_1fr(void){
             bossClear();
         }
     }
-    /*if(curLevelWorld == 1 && curLevelStage == 3){//1-3
+    if(curLevelWorld == 1 && curLevelStage == 3){//1-3
         if(myMem->getMusicIdCalledCount < 2)*((unsigned char*)((void*)0x80354C03)) |= 2;
         void *yoshi = (void*)FindActorByType(YOSHI, NULL);
         if(yoshi){
             if(*((unsigned char*)yoshi + 0xD5) == 0x78)setStageTimerRaw(40960);
         }
-    }*/
+    }
     return;
 }
