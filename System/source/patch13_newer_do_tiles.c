@@ -78,10 +78,10 @@ void patch13_newer_do_tiles(void* self){
     if(!myMem)return;
 	unsigned char *resAnimTilesBin = LoadFile(&(myMem->animTilesBin), getString17());
 	if(resAnimTilesBin)handleNWRA(self, resAnimTilesBin);
-	char tilesetsPath[256];
+	/*char tilesetsPath[256];
 	getCurAreaTilesetsPath(myMem, tilesetsPath, 64);
 	for(unsigned int i = 0;i < 4;i++){
 		getAnimTilesBinInTilesetArc(myMem, tilesetsPath, 64, i);
 		if(myMem->animTilesBinInTilesetArc[i].filePtr)handleNWRA(self, myMem->animTilesBinInTilesetArc[i].filePtr);
-	}
+	}*/
 }

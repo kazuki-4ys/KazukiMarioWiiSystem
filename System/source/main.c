@@ -85,6 +85,11 @@ void PlaySoundWithFunctionB4(void *spc, nw4r__snd__SoundHandle_Struct *handle, i
     PlaySoundWithFunctionB4_ptr(spc, handle, id, unk);
 }
 
+void DetachSound(nw4r__snd__SoundHandle_Struct *ptr){
+    void (*DetachSound_ptr)(nw4r__snd__SoundHandle_Struct*) = (void*)DETACH_SOUND;
+    DetachSound_ptr(ptr);
+}
+
 void StopBGMMusic(void){
     void (*StopBGMMusic_ptr)(void) = (void*)STOP_BGM_MUSIC_REV1;
     if(getDiscRevision() == 2)StopBGMMusic_ptr = (void*)STOP_BGM_MUSIC_REV2;
@@ -106,6 +111,7 @@ void bossClear(void){
     MakeMarioEnterDemoMode();
     StopBGMMusic();
     PlaySoundWithFunctionB4(*((void**)SOUND_RELATED_CLASS), &handle, 1882, 1);
+    DetachSound(&handle);
     myMem->bossClearStageExitTimer = 300;
 }
 
@@ -217,8 +223,8 @@ void __main(void){
     injectBranchPatch((void*)0x8019F510, get_patch9_arc_open_hook_asm(), get_patch9_arc_open_hook_asm_end(), true);
     injectBranchPatch((void*)0x80068f54, get_patch11_bugmario_actorcreate_hook_asm(), get_patch11_bugmario_actorcreate_hook_asm_end(), true);
     injectBranchPatch((void*)0x80022AAC, get_patch12_sprite_208_block_actorcreate_hook_asm(), get_patch12_sprite_208_block_actorcreate_hook_asm_end(), true);
-    //injectBranchPatch((void*)0x80087698, get_patch13_newer_do_tiles_asm(), get_patch13_newer_do_tiles_asm_end(), true);
-    //injectBranchPatch((void*)0x80087508, get_patch14_newer_destroy_tiles_asm(), get_patch14_newer_destroy_tiles_asm_end(), true);
+    injectBranchPatch((void*)0x80087698, get_patch13_newer_do_tiles_asm(), get_patch13_newer_do_tiles_asm_end(), true);
+    injectBranchPatch((void*)0x80087508, get_patch14_newer_destroy_tiles_asm(), get_patch14_newer_destroy_tiles_asm_end(), true);
     injectBranchPatch((void*)0x8008e5c0, get_patch17_get_cur_area_asm(), get_patch17_get_cur_area_asm_end(), true);
     injectBranchPatch((void*)0x800e3980, get_patch18_compare_time_100_hook_asm(), get_patch18_compare_time_100_hook_asm_end(), true);
     u32ToBytes((void*)0x80087544, 0x38801000);//AnimTileFrameHeapPatch
