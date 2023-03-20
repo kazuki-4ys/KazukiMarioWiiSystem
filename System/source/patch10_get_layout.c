@@ -27,8 +27,6 @@ void patch10_get_layout(void *r3, char *r4){
         my_free_via_egg(tmpString16);
     }else if(curLevelWorld == 1 && curLevelStage == 2 && myMem->curArea == 4){
         nw4r__lyt__TextBox__SetString(T_level_hint, getU16String1(), 0);
-    }else if(curLevelWorld == 1 && curLevelStage == 2 && myMem->curArea == 4){
-        nw4r__lyt__TextBox__SetString(T_level_hint, getU16String1(), 0);
     }else if(curLevelWorld == 1 && curLevelStage == 3){
         nw4r__lyt__TextBox__SetString(T_level_hint, getU16String2(), 0);
     }
