@@ -54,6 +54,34 @@ void *my_realloc_via_egg(void *ptr, unsigned int size){
     return newPtr;
 }
 
+unsigned short *utf8ToUtf16(char *_src){
+    unsigned int (*strlen)(char*) = (void*)STRLEN;
+    unsigned int destIndex = 0;
+    unsigned int curCharIndex = 0;
+    unsigned char *src = (unsigned char*)_src;
+    unsigned int length = strlen(_src);
+    unsigned short *dest = (unsigned short*)my_malloc_via_egg((length + 1) * 2);
+    while(curCharIndex < length){
+        dest[destIndex] = 0;
+        if((*(src + curCharIndex) & 0b11110000) == 0b11100000){//2048 ~ 65535
+            dest[destIndex] |= ((*(src + curCharIndex + 0) & 0xF) << 12);
+            dest[destIndex] |= ((*(src + curCharIndex + 1) & 0x3F) << 6);
+            dest[destIndex] |= (*(src + curCharIndex + 2) & 0x3F);
+            curCharIndex += 3;
+        }else if((*(src + curCharIndex) & 0b11100000) == 0b11000000){//128 ~ 2047
+            dest[destIndex] |= ((*(src + curCharIndex + 0) & 0x1F) << 6);
+            dest[destIndex] |= (*(src + curCharIndex + 1) & 0x3F);
+            curCharIndex += 2;
+        }else{
+            dest[destIndex] = *(src + curCharIndex);
+            curCharIndex++;
+        }
+        destIndex++;
+    }
+    dest[destIndex] = 0;
+    return dest;
+}
+
 unsigned char getDiscRevision(void){
     return *((unsigned char*)((void*)0x80000007));
 }
@@ -74,11 +102,21 @@ void setStageTimerRaw(int time){
     ustsp->stageTimer = time;
 }
 
+unsigned int getStageTimerRaw(void){
+    unknownStageTimerStruct *ustsp = *((unknownStageTimerStruct**)((void*)UNKNOWN_STAGE_TIMER_STRUCT_PTR_PTR));
+    if(!ustsp)return 0;
+    return (unsigned int)ustsp->stageTimer;
+}
+
 unsigned int random(unsigned int max){
     unsigned int(*GenerateRandomNumber)(int) = (void*)GENERATE_RANDOM_NUMBER;
     return GenerateRandomNumber(max);
 }
 
+void nw4r__snd__SoundHandle__SetVolume(nw4r__snd__SoundHandle_Struct *self, float value, int count){
+    void (*nw4r__snd__SoundHandle__SetVolume_ptr)(nw4r__snd__SoundHandle_Struct*, float, int) = (void*)NW4R__SND__SOUND_HANDLE__SET_VOLUME;
+    nw4r__snd__SoundHandle__SetVolume_ptr(self, value, count);
+}
 
 void PlaySoundWithFunctionB4(void *spc, nw4r__snd__SoundHandle_Struct *handle, int id, int unk){
     void (*PlaySoundWithFunctionB4_ptr)(void*, nw4r__snd__SoundHandle_Struct*, int, int) = (void*)PLAY_SOUND_WITH_FUNCTION_B4;
@@ -111,6 +149,7 @@ void bossClear(void){
     MakeMarioEnterDemoMode();
     StopBGMMusic();
     PlaySoundWithFunctionB4(*((void**)SOUND_RELATED_CLASS), &handle, 1882, 1);
+    //PlaySoundWithFunctionB4(*((void**)SOUND_RELATED_CLASS), &handle, 630, 1);
     DetachSound(&handle);
     myMem->bossClearStageExitTimer = 300;
 }
@@ -221,6 +260,7 @@ void __main(void){
     injectBranchPatch((void*)0x8026917c, get_patch7_brstm_hijacker_asm(), get_patch7_brstm_hijacker_asm_end(), true);
     injectBranchPatch((void*)0x802691c0, get_patch8_auto_brsar_patch_asm(), get_patch8_auto_brsar_patch_asm_end(), true);
     injectBranchPatch((void*)0x8019F510, get_patch9_arc_open_hook_asm(), get_patch9_arc_open_hook_asm_end(), true);
+    injectBranchPatch((void*)0x800C8E60, get_patch10_get_layout_asm(), get_patch10_get_layout_asm_end(), true);
     injectBranchPatch((void*)0x80068f54, get_patch11_bugmario_actorcreate_hook_asm(), get_patch11_bugmario_actorcreate_hook_asm_end(), true);
     injectBranchPatch((void*)0x80022AAC, get_patch12_sprite_208_block_actorcreate_hook_asm(), get_patch12_sprite_208_block_actorcreate_hook_asm_end(), true);
     injectBranchPatch((void*)0x80087698, get_patch13_newer_do_tiles_asm(), get_patch13_newer_do_tiles_asm_end(), true);

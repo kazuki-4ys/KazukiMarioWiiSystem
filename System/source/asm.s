@@ -13,6 +13,13 @@
 .global getString20
 .global getString21
 .global getString22
+.global getString23
+.global getString24
+.global getString25
+.global getString26
+.global getU16String0
+.global getU16String1
+.global getU16String2
 .global getPipeFixNodeCalcBin
 .global ICInvalidateRange
 .global initializeFloat
@@ -136,6 +143,106 @@ getString22:
     mflr r3
     mtlr r12
     blr
+
+getString23:
+    mflr r12
+    bl string_23
+    .string "T_coin_00\0\0"
+    string_23:
+    mflr r3
+    mtlr r12
+    blr
+
+getString24:
+    mflr r12
+    bl string_24
+    .string "T_level_hint\0\0\0"
+    string_24:
+    mflr r3
+    mtlr r12
+    blr
+
+getString25:
+    mflr r12
+    bl string_25
+    .long 0xE3838EE3
+    .long 0x83BCE383
+    .long 0x9EE383AB
+    .long 0xE383A2E3
+    .long 0x83BCE383
+    .long 0x89256446
+    .long 0x00000000
+    #ノーマルモード%dF (UTF-8)
+    string_25:
+    mflr r3
+    mtlr r12
+    blr
+
+getString26:
+    mflr r12
+    bl string_26
+    .long 0xE382A4E3
+    .long 0x83B3E383
+    .long 0x95E382A3
+    .long 0xE3838BE3
+    .long 0x8386E382
+    .long 0xA3E383BC
+    .long 0xE383A2E3
+    .long 0x83BCE383
+    .long 0x89256446
+    .long 0x00000000
+    #インフィニティーモード%dF (UTF-8)
+    string_26:
+    mflr r3
+    mtlr r12
+    blr
+
+getU16String0:
+    mflr r12
+    bl u16string_0
+    .long 0x30B330A4#コイ
+    .long 0x30F33092#ンを
+    .long 0x3068308B#とる
+    .long 0x306AFF01#な！
+    .long 0x00000000
+    u16string_0:
+    mflr r3
+    mtlr r12
+    blr
+
+getU16String1:
+    mflr r12
+    bl u16string_1
+    .long 0x3066304D
+    .long 0x30923059
+    .long 0x30793066
+    .long 0x305F304A
+    .long 0x305BFF01
+    .long 0x00000000
+    u16string_1:
+    mflr r3
+    mtlr r12
+    blr
+
+getU16String2:
+    mflr r12
+    bl u16string_2
+    .long 0x30E830C3
+    .long 0x30B730FC
+    .long 0x304B3089
+    .long 0x304A308A
+    .long 0x308B3068
+    .long 0x000A30BF
+    .long 0x30A430DE
+    .long 0x30FC3055
+    .long 0x30693046
+    .long 0xFF010000
+    u16string_2:
+    mflr r3
+    mtlr r12
+    blr
+
+
 
 getPipeFixNodeCalcBin:
     mflr r12

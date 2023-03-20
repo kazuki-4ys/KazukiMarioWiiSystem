@@ -35,6 +35,24 @@ Actor *FindActorByTypeAndSettings(unsigned short type, unsigned int settings){
     return NULL;
 }
 
+void playCountdownSe(void){
+    myMemStruct **myMemPtr = ((myMemStruct**)((void*)MY_MEM_PTR_PTR));
+    myMemStruct *myMem = *myMemPtr;
+    if(!myMem)return;
+    unsigned int rawTime = getStageTimerRaw();
+    unsigned int displayTime = ((rawTime - 1) / 4096) + 1;
+    if(displayTime > 9 || displayTime == 0){
+        myMem->lastPlayCountdownSeTime = 0;
+        return;
+    }
+    if(displayTime != myMem->lastPlayCountdownSeTime){
+        nw4r__snd__SoundHandle_Struct handle;
+        myMem->lastPlayCountdownSeTime = displayTime;
+        PlaySoundWithFunctionB4(*((void**)SOUND_RELATED_CLASS), &handle, 120, 1);
+        DetachSound(&handle);
+    }
+}
+
 void patch1_run_1fr(void){
     void(*ExitStage)(unsigned int, unsigned int, unsigned int, unsigned int) = (void*)EXIT_STAGE;
     myMemStruct **myMemPtr = ((myMemStruct**)((void*)MY_MEM_PTR_PTR));
@@ -84,8 +102,10 @@ void patch1_run_1fr(void){
         if(myMem->getMusicIdCalledCount < 2)*((unsigned char*)((void*)0x80354C03)) |= 2;
         void *yoshi = (void*)FindActorByType(YOSHI, NULL);
         if(yoshi){
-            if(*((unsigned char*)yoshi + 0xD5) == 0x78)setStageTimerRaw(40960);
+            if(*((unsigned char*)yoshi + 0xD5) == 0x78 && myMem->isGameTimerRunning)setStageTimerRaw(40960);
         }
+        if(myMem->isGameTimerRunning)playCountdownSe();
     }
+    myMem->isGameTimerRunning = false;
     return;
 }

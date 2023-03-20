@@ -2,6 +2,7 @@
 #define _COMMON_H_
 
 #include "actors.h"
+#include "lyt.h"
 
 #define MY_MEM_PTR_PTR 0x800001B0
 #define CUR_LEVEL_WORLD 0x803159bE
@@ -29,6 +30,7 @@
 #define GENERATE_RANDOM_NUMBER 0x800B2EE0
 #define SNPRINTF 0x802E14F8
 #define BG_TEX_MNG_LOAD_ANIM_TILE 0x80087B60
+#define NW4R__SND__SOUND_HANDLE__SET_VOLUME 0x80267230
 #define PLAY_SOUND_WITH_FUNCTION_B4 0x80194EA0
 #define DETACH_SOUND 0x8027A010
 #define SOUND_RELATED_CLASS 0x8042A1A8
@@ -147,8 +149,10 @@ typedef struct{
 	void *patch5CodeEnd;
 	void *patch15CodeEnd;
 	void *patch16CodeEnd;
+	nw4r__lyt__TextBox_Struct *T_level_hint;
     unsigned int *timerPtr;
 	bool hijackBrstm;
+	bool isGameTimerRunning;
 	unsigned char gameSpoofMusicId;
 	unsigned char myMusicId;
 	unsigned char *courseArcFile;
@@ -160,6 +164,7 @@ typedef struct{
 	bool killerHoudaiSearch;
 	bool isBossClearBgmPlayed;
 	int bossClearStageExitTimer;
+	int lastPlayCountdownSeTime;
 }myMemStruct;
 
 float initializeFloat(unsigned int);
@@ -170,13 +175,17 @@ void my_free(void *ptr);
 void *my_realloc(void *ptr, unsigned int size);
 void *my_malloc_via_egg(unsigned int length);
 void *my_free_via_egg(void *ptr);
+unsigned short *utf8ToUtf16(char *_src);
 void *my_realloc_via_egg(void *ptr, unsigned int size);
 void *my_malloc_via_allocator(unsigned int length);
 Actor *CreateActor(unsigned short classID, int settings, VEC3 *pos, void* rot, char layer);
 Actor *FindActorByType(unsigned short classID, Actor *startFrom);
 void setStageTimerRaw(int time);
+unsigned int getStageTimerRaw(void);
 unsigned int random(unsigned int max);
+void nw4r__snd__SoundHandle__SetVolume(nw4r__snd__SoundHandle_Struct *self, float value, int count);
 void PlaySoundWithFunctionB4(void *spc, nw4r__snd__SoundHandle_Struct *handle, int id, int unk);
+void DetachSound(nw4r__snd__SoundHandle_Struct *ptr);
 void StopBGMMusic(void);
 void bossClear(void);
 void u32ToBytes(unsigned char *mem, unsigned int val);
@@ -206,6 +215,13 @@ const char *getString19(void);
 const char *getString20(void);
 const char *getString21(void);
 const char *getString22(void);
+const char *getString23(void);
+const char *getString24(void);
+const char *getString25(void);
+const char *getString26(void);
+const unsigned short *getU16String0(void);
+const unsigned short *getU16String1(void);
+const unsigned short *getU16String2(void);
 unsigned char *getPipeFixNodeCalcBin(void);
 void ICInvalidateRange(void*, unsigned int);
 void *get_patch1_run_1fr_asm(void);
@@ -225,6 +241,8 @@ void *get_patch7_brstm_hijacker_asm_end(void);
 void *get_patch8_auto_brsar_patch_asm(void);
 void *get_patch8_auto_brsar_patch_asm_end(void);
 void *get_patch9_arc_open_hook_asm(void);
+void *get_patch10_get_layout_asm(void);
+void *get_patch10_get_layout_asm_end(void);
 void *get_patch9_arc_open_hook_asm_end(void);
 void *get_patch11_bugmario_actorcreate_hook_asm(void);
 void *get_patch11_bugmario_actorcreate_hook_asm_end(void);
