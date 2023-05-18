@@ -17,6 +17,7 @@
 .global getString24
 .global getString25
 .global getString26
+.global getString27
 .global getU16String0
 .global getU16String1
 .global getU16String2
@@ -24,6 +25,7 @@
 .global ICInvalidateRange
 .global initializeFloat
 .global abs
+.global intToFloat
 .global floatToInt
 
 getString6:
@@ -197,6 +199,15 @@ getString26:
     mtlr r12
     blr
 
+getString27:
+    mflr r12
+    bl string_27
+    .string "Wm_en_burst_ss\0"
+    string_27:
+    mflr r3
+    mtlr r12
+    blr
+
 getU16String0:
     mflr r12
     bl u16string_0
@@ -284,6 +295,19 @@ abs:
     and r12, r12, r11
     stw r12, -4 (sp)
     lfs f1, -4 (sp)
+    blr
+
+intToFloat:
+    lis r4, 0x4330
+    stw r4, -0x8 (sp)
+    lis r4, 0x8000
+    stw r4, -0x4 (sp)
+    lfd f2, -0x8 (sp) # load magic double into f2
+    xoris r3, r3, 0x8000 # flip sign bit
+    stw r3, -0x4 (sp) # store lower half (upper half already stored)
+    lfd f1, -0x8 (sp)
+    fsub f1, f1, f2 # complete conversion
+    frsp f1, f1
     blr
 
 floatToInt:

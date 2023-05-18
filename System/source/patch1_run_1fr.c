@@ -76,6 +76,10 @@ void patch1_run_1fr(void){
     if(bytesToU32((void*)0x80A4FB7C) == 0x38C00014)injectBranchPatch((void*)0x80A4FB7C, get_patch15_get_houdai_slide_search_killer_flag_asm(), (*myMemPtr)->patch15CodeEnd, true);
     if(bytesToU32((void*)0x80a4c980) == 0x4B617C91)injectBranchPatch((void*)0x80a4c980, get_patch16_houdai_slide_generate_killer_hook_asm(), (*myMemPtr)->patch16CodeEnd, true);
     anotherRemoveTitleReplay();
+    if(bytesToU32((void*)0x807E1360) == 0x9421ff50){
+        u32ToBytes(0x807E1360, makeBranchInstructionByAddrDelta(get_daChengeBlock_c__doStuff_asm() - 0x807E1360));
+        ICInvalidateRange((void*)((unsigned int)0x807E1360 & (~0x1F)), 0x20);
+    }
     unsigned char curLevelWorld = *((unsigned char*)((void*)CUR_LEVEL_WORLD)) + 1;
     unsigned char curLevelStage = *((unsigned char*)((void*)CUR_LEVEL_STAGE)) + 1;
     myMemStruct *myMem = *myMemPtr;

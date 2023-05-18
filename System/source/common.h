@@ -169,6 +169,7 @@ typedef struct{
 
 float initializeFloat(unsigned int);
 float abs(float);
+float intToFloat(int);
 unsigned int floatToInt(float);
 void *my_malloc(unsigned int length);
 void my_free(void *ptr);
@@ -219,6 +220,7 @@ const char *getString23(void);
 const char *getString24(void);
 const char *getString25(void);
 const char *getString26(void);
+const char *getString27(void);
 const unsigned short *getU16String0(void);
 const unsigned short *getU16String1(void);
 const unsigned short *getU16String2(void);
@@ -260,5 +262,8 @@ void *get_patch17_get_cur_area_asm(void);
 void *get_patch17_get_cur_area_asm_end(void);
 void *get_patch18_compare_time_100_hook_asm(void);
 void *get_patch18_compare_time_100_hook_asm_end(void);
+void *get_daChengeBlock_c__doStuff_asm(void);
+void *get_NEW_GetTileFromTileTable(void);
+void *get_Special_end(void);
 
 #endif//_COMMON_H_
