@@ -149,6 +149,7 @@ typedef struct{
 	void *patch5CodeEnd;
 	void *patch15CodeEnd;
 	void *patch16CodeEnd;
+	void *patch20CodeEnd;
 	nw4r__lyt__TextBox_Struct *T_level_hint;
     unsigned int *timerPtr;
 	bool hijackBrstm;
@@ -265,5 +266,7 @@ void *get_patch18_compare_time_100_hook_asm_end(void);
 void *get_daChengeBlock_c__doStuff_asm(void);
 void *get_NEW_GetTileFromTileTable(void);
 void *get_Special_end(void);
+void *get_patch20_zurumode_itemstock99_asm(void);
+void *get_patch20_zurumode_itemstock99_asm_end(void);
 
 #endif//_COMMON_H_

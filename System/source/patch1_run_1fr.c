@@ -1,9 +1,18 @@
 #include "common.h"
 
+//#define ZURUMODE
+
 void *get_patch4_dokan_coin_spawner_asm(void);
 void *get_patch4_dokan_coin_spawner_asm_end(void);
 void *get_patch5_coin_lakitu_spawner_asm(void);
 void *get_patch5_coin_lakitu_spawner_asm_end(void);
+void zuruMode(void){//デバッグ用チート
+    //残基99
+    u32ToBytes((void*)0x80354C10, 99);
+    u32ToBytes((void*)0x80354C14, 99);
+    u32ToBytes((void*)0x80354C18, 99);
+    u32ToBytes((void*)0x80354C1C, 99);
+}
 
 void anotherRemoveTitleReplay(void){
     //from AnotherSMBW
@@ -54,6 +63,9 @@ void playCountdownSe(void){
 }
 
 void patch1_run_1fr(void){
+    #ifdef ZURUMODE
+    zuruMode();
+    #endif//ZURUMODE
     void(*ExitStage)(unsigned int, unsigned int, unsigned int, unsigned int) = (void*)EXIT_STAGE;
     myMemStruct **myMemPtr = ((myMemStruct**)((void*)MY_MEM_PTR_PTR));
     if(!(*myMemPtr)){//自分が使うためのメモリを確保
@@ -62,6 +74,7 @@ void patch1_run_1fr(void){
         (*myMemPtr)->patch5CodeEnd = get_patch5_coin_lakitu_spawner_asm_end();
         (*myMemPtr)->patch15CodeEnd = get_patch15_get_houdai_slide_search_killer_flag_asm_end();
         (*myMemPtr)->patch16CodeEnd = get_patch16_houdai_slide_generate_killer_hook_asm_end();
+        (*myMemPtr)->patch20CodeEnd = get_patch20_zurumode_itemstock99_asm_end();
         //get_XXXXXXX_asm_end()はinjectBranchPatch()を呼び出した後には使えないので保存しておく
         (*myMemPtr)->bossClearStageExitTimer = -1;
     }
@@ -70,11 +83,35 @@ void patch1_run_1fr(void){
     if(bytesToU32((void*)0x80ABC414) == 0x38600053)injectBranchPatch((void*)0x80abc414, get_patch5_coin_lakitu_spawner_asm(), (*myMemPtr)->patch5CodeEnd, true);
     if(bytesToU32((void*)0x80A4FB5C) == 0x38C00014)injectBranchPatch((void*)0x80A4FB5C, get_patch15_get_houdai_slide_search_killer_flag_asm(), (*myMemPtr)->patch15CodeEnd, true);
     if(bytesToU32((void*)0x80a4c960) == 0x4B617CB1)injectBranchPatch((void*)0x80a4c960, get_patch16_houdai_slide_generate_killer_hook_asm(), (*myMemPtr)->patch16CodeEnd, true);
+    #ifdef ZURUMODE
+    //アイテムストック99
+    if(bytesToU32((void*)0x807af53c) == 0x901E08B4)injectBranchPatch((void*)0x807af53c, get_patch20_zurumode_itemstock99_asm(), (*myMemPtr)->patch20CodeEnd, true);
+    if(bytesToU32((void*)0x807b0080) == 0x808408B4){
+        u32ToBytes((void*)0x807b0080, 0x38800063);
+        ICInvalidateRange((void*)0x807b0080, 0x20);
+    }
+    if(bytesToU32((void*)0x807b0804) == 0x809D08B4){
+        u32ToBytes((void*)0x807b0804, 0x38800063);
+        ICInvalidateRange((void*)0x807b0800, 0x20);
+    }
+    #endif//ZURUMODE
     //rev2
     if(bytesToU32((void*)0x80ABB0A0) == 0x4B5A9571)injectBranchPatch((void*)0x80abb0a0, get_patch4_dokan_coin_spawner_asm(), (*myMemPtr)->patch4CodeEnd, true);
     if(bytesToU32((void*)0x80ABC434) == 0x38600053)injectBranchPatch((void*)0x80abc434, get_patch5_coin_lakitu_spawner_asm(), (*myMemPtr)->patch5CodeEnd, true);
     if(bytesToU32((void*)0x80A4FB7C) == 0x38C00014)injectBranchPatch((void*)0x80A4FB7C, get_patch15_get_houdai_slide_search_killer_flag_asm(), (*myMemPtr)->patch15CodeEnd, true);
     if(bytesToU32((void*)0x80a4c980) == 0x4B617C91)injectBranchPatch((void*)0x80a4c980, get_patch16_houdai_slide_generate_killer_hook_asm(), (*myMemPtr)->patch16CodeEnd, true);
+    #ifdef ZURUMODE
+    //アイテムストック99
+    if(bytesToU32((void*)0x807af54c) == 0x901E08B4)injectBranchPatch((void*)0x807af54c, get_patch20_zurumode_itemstock99_asm(), (*myMemPtr)->patch20CodeEnd, true);
+    if(bytesToU32((void*)0x807b0090) == 0x808408B4){
+        u32ToBytes((void*)0x807b0090, 0x38800063);
+        ICInvalidateRange((void*)0x807b0080, 0x20);
+    }
+    if(bytesToU32((void*)0x807b0814) == 0x809D08B4){
+        u32ToBytes((void*)0x807b0814, 0x38800063);
+        ICInvalidateRange((void*)0x807b0800, 0x20);
+    }
+    #endif//ZURUMODE
     anotherRemoveTitleReplay();
     if(bytesToU32((void*)0x807E1360) == 0x9421ff50){
         u32ToBytes(0x807E1360, makeBranchInstructionByAddrDelta(get_daChengeBlock_c__doStuff_asm() - 0x807E1360));
