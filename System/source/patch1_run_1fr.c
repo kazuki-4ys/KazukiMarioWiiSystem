@@ -65,7 +65,11 @@ void playCountdownSe(void){
 
 void fixYoshiSwallow(void){
     //from https://github.com/NSMBW-Community/NSMBW-Updated/blob/master/code/src/nsmbwup_special_exit_controller.cpp
-    *((unsigned char*)((void*)0x809398CA)) = 0x7F;//スプライト179飲み込み修正
+    if(getDiscRevision() == 1){
+        *((unsigned char*)((void*)0x809398CA)) = 0x7F;//スプライト179飲み込み修正
+    }else{
+        *((unsigned char*)((void*)0x809398DA)) = 0x7F;//スプライト179飲み込み修正
+    }
     return;
 }
 
