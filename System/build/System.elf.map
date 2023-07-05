@@ -1,0 +1,940 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 dvd_file.o
+ .data          0x00000000        0x0 dvd_file.o
+ .bss           0x00000000        0x0 dvd_file.o
+ .eh_frame      0x00000000       0x64 dvd_file.o
+ .text          0x00000000        0x0 game.o
+ .data          0x00000000        0x0 game.o
+ .bss           0x00000000        0x0 game.o
+ .eh_frame      0x00000000       0x94 game.o
+ .text          0x00000000        0x0 lyt.o
+ .data          0x00000000        0x0 lyt.o
+ .bss           0x00000000        0x0 lyt.o
+ .eh_frame      0x00000000       0x5c lyt.o
+ .text          0x00000000        0x0 main.o
+ .data          0x00000000        0x0 main.o
+ .bss           0x00000000        0x0 main.o
+ .text.my_malloc
+                0x00000000       0x5c main.o
+ .text.my_free  0x00000000       0x2c main.o
+ .text.nw4r__snd__SoundHandle__SetVolume
+                0x00000000       0x2c main.o
+ .text.my_realloc
+                0x00000000       0x9c main.o
+ .text.my_realloc_via_egg
+                0x00000000       0x9c main.o
+ .eh_frame      0x00000000      0x41c main.o
+ .text          0x00000000        0x0 mugendai_meikyu.o
+ .data          0x00000000        0x0 mugendai_meikyu.o
+ .bss           0x00000000        0x0 mugendai_meikyu.o
+ .text.findSpriteByIdAndSettingsFromCourseBin
+                0x00000000       0xc8 mugendai_meikyu.o
+ .text.setIdToCourseSprite
+                0x00000000       0x28 mugendai_meikyu.o
+ .text.setZoneIdToCourseSprite
+                0x00000000       0x28 mugendai_meikyu.o
+ .eh_frame      0x00000000      0x5d0 mugendai_meikyu.o
+ .text          0x00000000        0x0 patch1_run_1fr.o
+ .data          0x00000000        0x0 patch1_run_1fr.o
+ .bss           0x00000000        0x0 patch1_run_1fr.o
+ .text.zuruMode
+                0x00000000       0x5c patch1_run_1fr.o
+ .text.FindActorByTypeAndSettings
+                0x00000000       0x58 patch1_run_1fr.o
+ .eh_frame      0x00000000      0x120 patch1_run_1fr.o
+ .text          0x00000000        0x0 patch10_get_layout.o
+ .data          0x00000000        0x0 patch10_get_layout.o
+ .bss           0x00000000        0x0 patch10_get_layout.o
+ .eh_frame      0x00000000       0x94 patch10_get_layout.o
+ .text          0x00000000        0x0 patch11_bugmario_actorcreate_hook.o
+ .data          0x00000000        0x0 patch11_bugmario_actorcreate_hook.o
+ .bss           0x00000000        0x0 patch11_bugmario_actorcreate_hook.o
+ .eh_frame      0x00000000       0x8c patch11_bugmario_actorcreate_hook.o
+ .text          0x00000000        0x0 patch12_sprite_208_block_actorcreate_hook.o
+ .data          0x00000000        0x0 patch12_sprite_208_block_actorcreate_hook.o
+ .bss           0x00000000        0x0 patch12_sprite_208_block_actorcreate_hook.o
+ .eh_frame      0x00000000       0x4c patch12_sprite_208_block_actorcreate_hook.o
+ .text          0x00000000        0x0 patch13_newer_do_tiles.o
+ .data          0x00000000        0x0 patch13_newer_do_tiles.o
+ .bss           0x00000000        0x0 patch13_newer_do_tiles.o
+ .text.getCurAreaTilesetsPath
+                0x00000000       0xfc patch13_newer_do_tiles.o
+ .text.getAnimTilesBinInTilesetArc
+                0x00000000       0xd0 patch13_newer_do_tiles.o
+ .eh_frame      0x00000000       0xf4 patch13_newer_do_tiles.o
+ .text          0x00000000        0x0 patch14_newer_destroy_tiles.o
+ .data          0x00000000        0x0 patch14_newer_destroy_tiles.o
+ .bss           0x00000000        0x0 patch14_newer_destroy_tiles.o
+ .text.freeAnimTilesBinInTilesetArc
+                0x00000000       0x64 patch14_newer_destroy_tiles.o
+ .eh_frame      0x00000000       0x60 patch14_newer_destroy_tiles.o
+ .text          0x00000000        0x0 patch15_get_houdai_slide_search_killer_flag.o
+ .data          0x00000000        0x0 patch15_get_houdai_slide_search_killer_flag.o
+ .bss           0x00000000        0x0 patch15_get_houdai_slide_search_killer_flag.o
+ .eh_frame      0x00000000       0x28 patch15_get_houdai_slide_search_killer_flag.o
+ .text          0x00000000        0x0 patch16_houdai_slide_generate_killer_hook.o
+ .data          0x00000000        0x0 patch16_houdai_slide_generate_killer_hook.o
+ .bss           0x00000000        0x0 patch16_houdai_slide_generate_killer_hook.o
+ .eh_frame      0x00000000       0x38 patch16_houdai_slide_generate_killer_hook.o
+ .text          0x00000000        0x0 patch17_get_cur_area.o
+ .data          0x00000000        0x0 patch17_get_cur_area.o
+ .bss           0x00000000        0x0 patch17_get_cur_area.o
+ .eh_frame      0x00000000       0x3c patch17_get_cur_area.o
+ .text          0x00000000        0x0 patch18_compare_time_100_hook.o
+ .data          0x00000000        0x0 patch18_compare_time_100_hook.o
+ .bss           0x00000000        0x0 patch18_compare_time_100_hook.o
+ .eh_frame      0x00000000       0x28 patch18_compare_time_100_hook.o
+ .text          0x00000000        0x0 patch19_tilegod.o
+ .data          0x00000000        0x0 patch19_tilegod.o
+ .bss           0x00000000        0x0 patch19_tilegod.o
+ .eh_frame      0x00000000       0xa4 patch19_tilegod.o
+ .text          0x00000000        0x0 patch2_coin_killer.o
+ .data          0x00000000        0x0 patch2_coin_killer.o
+ .bss           0x00000000        0x0 patch2_coin_killer.o
+ .eh_frame      0x00000000       0x28 patch2_coin_killer.o
+ .text          0x00000000        0x0 patch3_save_timer_ptr.o
+ .data          0x00000000        0x0 patch3_save_timer_ptr.o
+ .bss           0x00000000        0x0 patch3_save_timer_ptr.o
+ .eh_frame      0x00000000       0x28 patch3_save_timer_ptr.o
+ .text          0x00000000        0x0 patch4_dokan_coin_spawner.o
+ .data          0x00000000        0x0 patch4_dokan_coin_spawner.o
+ .bss           0x00000000        0x0 patch4_dokan_coin_spawner.o
+ .eh_frame      0x00000000       0x38 patch4_dokan_coin_spawner.o
+ .text          0x00000000        0x0 patch5_coin_lakitu_spawner.o
+ .data          0x00000000        0x0 patch5_coin_lakitu_spawner.o
+ .bss           0x00000000        0x0 patch5_coin_lakitu_spawner.o
+ .eh_frame      0x00000000       0x28 patch5_coin_lakitu_spawner.o
+ .text          0x00000000        0x0 patch6_get_music_id.o
+ .data          0x00000000        0x0 patch6_get_music_id.o
+ .bss           0x00000000        0x0 patch6_get_music_id.o
+ .eh_frame      0x00000000       0x5c patch6_get_music_id.o
+ .text          0x00000000        0x0 patch7_brstm_hijacker.o
+ .data          0x00000000        0x0 patch7_brstm_hijacker.o
+ .bss           0x00000000        0x0 patch7_brstm_hijacker.o
+ .eh_frame      0x00000000       0x3c patch7_brstm_hijacker.o
+ .text          0x00000000        0x0 patch9_arc_open_hook.o
+ .data          0x00000000        0x0 patch9_arc_open_hook.o
+ .bss           0x00000000        0x0 patch9_arc_open_hook.o
+ .eh_frame      0x00000000       0x88 patch9_arc_open_hook.o
+ .data          0x00000000        0x0 asm.o
+ .bss           0x00000000        0x0 asm.o
+ .data          0x00000000        0x0 patch1_run_1fr_asm.o
+ .bss           0x00000000        0x0 patch1_run_1fr_asm.o
+ .data          0x00000000        0x0 patch10_get_layout_asm.o
+ .bss           0x00000000        0x0 patch10_get_layout_asm.o
+ .data          0x00000000        0x0 patch11_bugmario_actorcreate_hook_asm.o
+ .bss           0x00000000        0x0 patch11_bugmario_actorcreate_hook_asm.o
+ .data          0x00000000        0x0 patch12_sprite_208_block_actorcreate_hook_asm.o
+ .bss           0x00000000        0x0 patch12_sprite_208_block_actorcreate_hook_asm.o
+ .data          0x00000000        0x0 patch13_newer_do_tiles_asm.o
+ .bss           0x00000000        0x0 patch13_newer_do_tiles_asm.o
+ .data          0x00000000        0x0 patch14_newer_destroy_tiles_asm.o
+ .bss           0x00000000        0x0 patch14_newer_destroy_tiles_asm.o
+ .data          0x00000000        0x0 patch15_get_houdai_slide_search_killer_flag_asm.o
+ .bss           0x00000000        0x0 patch15_get_houdai_slide_search_killer_flag_asm.o
+ .data          0x00000000        0x0 patch16_houdai_slide_generate_killer_hook_asm.o
+ .bss           0x00000000        0x0 patch16_houdai_slide_generate_killer_hook_asm.o
+ .data          0x00000000        0x0 patch17_get_cur_area_asm.o
+ .bss           0x00000000        0x0 patch17_get_cur_area_asm.o
+ .data          0x00000000        0x0 patch18_compare_time_100_hook_asm.o
+ .bss           0x00000000        0x0 patch18_compare_time_100_hook_asm.o
+ .data          0x00000000        0x0 patch19_tilegod_asm.o
+ .bss           0x00000000        0x0 patch19_tilegod_asm.o
+ .data          0x00000000        0x0 patch2_coin_killer_asm.o
+ .bss           0x00000000        0x0 patch2_coin_killer_asm.o
+ .data          0x00000000        0x0 patch20_zurumode_itemstock99.o
+ .bss           0x00000000        0x0 patch20_zurumode_itemstock99.o
+ .data          0x00000000        0x0 patch3_save_timer_ptr_asm.o
+ .bss           0x00000000        0x0 patch3_save_timer_ptr_asm.o
+ .data          0x00000000        0x0 patch4_dokan_coin_spawner_asm.o
+ .bss           0x00000000        0x0 patch4_dokan_coin_spawner_asm.o
+ .data          0x00000000        0x0 patch5_coin_lakitu_spawner_asm.o
+ .bss           0x00000000        0x0 patch5_coin_lakitu_spawner_asm.o
+ .data          0x00000000        0x0 patch6_get_music_id_asm.o
+ .bss           0x00000000        0x0 patch6_get_music_id_asm.o
+ .data          0x00000000        0x0 patch7_brstm_hijacker_asm.o
+ .bss           0x00000000        0x0 patch7_brstm_hijacker_asm.o
+ .data          0x00000000        0x0 patch8_auto_brsar_patch_asm.o
+ .bss           0x00000000        0x0 patch8_auto_brsar_patch_asm.o
+ .data          0x00000000        0x0 patch9_arc_open_hook_asm.o
+ .bss           0x00000000        0x0 patch9_arc_open_hook_asm.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD dvd_file.o
+LOAD game.o
+LOAD lyt.o
+LOAD main.o
+LOAD mugendai_meikyu.o
+LOAD patch1_run_1fr.o
+LOAD patch10_get_layout.o
+LOAD patch11_bugmario_actorcreate_hook.o
+LOAD patch12_sprite_208_block_actorcreate_hook.o
+LOAD patch13_newer_do_tiles.o
+LOAD patch14_newer_destroy_tiles.o
+LOAD patch15_get_houdai_slide_search_killer_flag.o
+LOAD patch16_houdai_slide_generate_killer_hook.o
+LOAD patch17_get_cur_area.o
+LOAD patch18_compare_time_100_hook.o
+LOAD patch19_tilegod.o
+LOAD patch2_coin_killer.o
+LOAD patch3_save_timer_ptr.o
+LOAD patch4_dokan_coin_spawner.o
+LOAD patch5_coin_lakitu_spawner.o
+LOAD patch6_get_music_id.o
+LOAD patch7_brstm_hijacker.o
+LOAD patch9_arc_open_hook.o
+LOAD asm.o
+LOAD patch1_run_1fr_asm.o
+LOAD patch10_get_layout_asm.o
+LOAD patch11_bugmario_actorcreate_hook_asm.o
+LOAD patch12_sprite_208_block_actorcreate_hook_asm.o
+LOAD patch13_newer_do_tiles_asm.o
+LOAD patch14_newer_destroy_tiles_asm.o
+LOAD patch15_get_houdai_slide_search_killer_flag_asm.o
+LOAD patch16_houdai_slide_generate_killer_hook_asm.o
+LOAD patch17_get_cur_area_asm.o
+LOAD patch18_compare_time_100_hook_asm.o
+LOAD patch19_tilegod_asm.o
+LOAD patch2_coin_killer_asm.o
+LOAD patch20_zurumode_itemstock99.o
+LOAD patch3_save_timer_ptr_asm.o
+LOAD patch4_dokan_coin_spawner_asm.o
+LOAD patch5_coin_lakitu_spawner_asm.o
+LOAD patch6_get_music_id_asm.o
+LOAD patch7_brstm_hijacker_asm.o
+LOAD patch8_auto_brsar_patch_asm.o
+LOAD patch9_arc_open_hook_asm.o
+LOAD c:/devkitpro/devkitppc/bin/../lib/gcc/powerpc-eabi/12.2.0\libgcc.a
+START GROUP
+LOAD c:/devkitpro/devkitppc/bin/../lib/gcc/powerpc-eabi/12.2.0/../../../../powerpc-eabi/lib\libsysbase.a
+LOAD c:/devkitpro/devkitppc/bin/../lib/gcc/powerpc-eabi/12.2.0/../../../../powerpc-eabi/lib\libc.a
+END GROUP
+LOAD c:/devkitpro/devkitppc/bin/../lib/gcc/powerpc-eabi/12.2.0\libgcc.a
+
+.text           0x80004000     0x5698
+ *(.text.__main)
+ .text.__main   0x80004000      0x2c8 main.o
+                0x80004000                __main
+ *(.text*)
+ .text.LoadFile
+                0x800042c8       0xb0 dvd_file.o
+                0x800042c8                LoadFile
+ .text.FreeFile
+                0x80004378       0x58 dvd_file.o
+                0x80004378                FreeFile
+ .text.SoundPlayingClass__PlaySoundAtPosition
+                0x800043d0       0x2c game.o
+                0x800043d0                SoundPlayingClass__PlaySoundAtPosition
+ .text.ConvertStagePositionToScreenPosition
+                0x800043fc       0x2c game.o
+                0x800043fc                ConvertStagePositionToScreenPosition
+ .text.SpawnEffect
+                0x80004428       0x2c game.o
+                0x80004428                SpawnEffect
+ .text.dEffectBreakMgr_c__spawnTile
+                0x80004454       0x30 game.o
+                0x80004454                dEffectBreakMgr_c__spawnTile
+ .text.EmbedLayoutBase_c__findTextBoxByName
+                0x80004484       0x2c lyt.o
+                0x80004484                EmbedLayoutBase_c__findTextBoxByName
+ .text.nw4r__lyt__TextBox__SetString
+                0x800044b0       0x64 lyt.o
+                0x800044b0                nw4r__lyt__TextBox__SetString
+ .text.my_malloc_via_egg
+                0x80004514       0x6c main.o
+                0x80004514                my_malloc_via_egg
+ .text.my_free_via_egg
+                0x80004580       0x38 main.o
+                0x80004580                my_free_via_egg
+ .text.utf8ToUtf16
+                0x800045b8      0x108 main.o
+                0x800045b8                utf8ToUtf16
+ .text.getDiscRevision
+                0x800046c0       0x10 main.o
+                0x800046c0                getDiscRevision
+ .text.CreateActor
+                0x800046d0       0x2c main.o
+                0x800046d0                CreateActor
+ .text.FindActorByType
+                0x800046fc       0x2c main.o
+                0x800046fc                FindActorByType
+ .text.setStageTimerRaw
+                0x80004728       0x1c main.o
+                0x80004728                setStageTimerRaw
+ .text.getStageTimerRaw
+                0x80004744       0x24 main.o
+                0x80004744                getStageTimerRaw
+ .text.random   0x80004768       0x2c main.o
+                0x80004768                random
+ .text.PlaySoundWithFunctionB4
+                0x80004794       0x2c main.o
+                0x80004794                PlaySoundWithFunctionB4
+ .text.DetachSound
+                0x800047c0       0x2c main.o
+                0x800047c0                DetachSound
+ .text.StopBGMMusic
+                0x800047ec       0x50 main.o
+                0x800047ec                StopBGMMusic
+ .text.MakeMarioEnterDemoMode
+                0x8000483c       0x50 main.o
+                0x8000483c                MakeMarioEnterDemoMode
+ .text.bossClear
+                0x8000488c       0x78 main.o
+                0x8000488c                bossClear
+ .text.u32ToBytes
+                0x80004904       0x20 main.o
+                0x80004904                u32ToBytes
+ .text.u16ToBytes
+                0x80004924       0x10 main.o
+                0x80004924                u16ToBytes
+ .text.bytesToU16
+                0x80004934       0x14 main.o
+                0x80004934                bytesToU16
+ .text.bytesToU32
+                0x80004948       0x2c main.o
+                0x80004948                bytesToU32
+ .text.makeBranchInstructionByAddrDelta
+                0x80004974       0x18 main.o
+                0x80004974                makeBranchInstructionByAddrDelta
+ .text.injectBranchPatch
+                0x8000498c       0xac main.o
+                0x8000498c                injectBranchPatch
+ .text.makeInArchiveCourseFileName
+                0x80004a38       0x94 main.o
+                0x80004a38                makeInArchiveCourseFileName
+ .text.getARCChildFilePointer
+                0x80004acc      0x128 main.o
+                0x80004acc                getARCChildFilePointer
+ .text.getCourseBinBlock
+                0x80004bf4       0x38 main.o
+                0x80004bf4                getCourseBinBlock
+ .text.newerPipeFix
+                0x80004c2c       0xd4 main.o
+                0x80004c2c                newerPipeFix
+ .text.setDestAreaToCourseEntrance
+                0x80004d00       0x10 mugendai_meikyu.o
+                0x80004d00                setDestAreaToCourseEntrance
+ .text.setPosToCourseEntrance
+                0x80004d10       0x50 mugendai_meikyu.o
+                0x80004d10                setPosToCourseEntrance
+ .text.findEntranceByIdFromCourseBin
+                0x80004d60       0x80 mugendai_meikyu.o
+                0x80004d60                findEntranceByIdFromCourseBin
+ .text.findSpriteByIdFromCourseBin
+                0x80004de0       0xa0 mugendai_meikyu.o
+                0x80004de0                findSpriteByIdFromCourseBin
+ .text.setPosToCourseSprite
+                0x80004e80       0x50 mugendai_meikyu.o
+                0x80004e80                setPosToCourseSprite
+ .text.setSettingsToCourseSprite
+                0x80004ed0       0x14 mugendai_meikyu.o
+                0x80004ed0                setSettingsToCourseSprite
+ .text.isSameMazePos
+                0x80004ee4       0x3c mugendai_meikyu.o
+                0x80004ee4                isSameMazePos
+ .text.samePosTekiType
+                0x80004f20       0x80 mugendai_meikyu.o
+                0x80004f20                samePosTekiType
+ .text.reportGameSettings
+                0x80004fa0      0x174 mugendai_meikyu.o
+                0x80004fa0                reportGameSettings
+ .text.anahoriInit
+                0x80005114       0x6c mugendai_meikyu.o
+                0x80005114                anahoriInit
+ .text.anahoriLast
+                0x80005180       0x5c mugendai_meikyu.o
+                0x80005180                anahoriLast
+ .text.anahoriDig
+                0x800051dc      0x1bc mugendai_meikyu.o
+                0x800051dc                anahoriDig
+ .text.anahoriCanDig
+                0x80005398       0xd4 mugendai_meikyu.o
+                0x80005398                anahoriCanDig
+ .text.anahori  0x8000546c      0x13c mugendai_meikyu.o
+                0x8000546c                anahori
+ .text.itemBox  0x800055a8      0x184 mugendai_meikyu.o
+                0x800055a8                itemBox
+ .text.startGoalDecideType0
+                0x8000572c      0x170 mugendai_meikyu.o
+                0x8000572c                startGoalDecideType0
+ .text.startGoalDecideType1
+                0x8000589c      0x170 mugendai_meikyu.o
+                0x8000589c                startGoalDecideType1
+ .text.startGoalDecideType2
+                0x80005a0c      0x178 mugendai_meikyu.o
+                0x80005a0c                startGoalDecideType2
+ .text.startGoalDecideType3
+                0x80005b84      0x178 mugendai_meikyu.o
+                0x80005b84                startGoalDecideType3
+ .text.startGoalDecide
+                0x80005cfc       0x74 mugendai_meikyu.o
+                0x80005cfc                startGoalDecide
+ .text.starCoin
+                0x80005d70       0xa4 mugendai_meikyu.o
+                0x80005d70                starCoin
+ .text.checkIsEnemySamePos
+                0x80005e14       0xd4 mugendai_meikyu.o
+                0x80005e14                checkIsEnemySamePos
+ .text.enemy    0x80005ee8      0x1cc mugendai_meikyu.o
+                0x80005ee8                enemy
+ .text.decideGameSettings
+                0x800060b4       0x70 mugendai_meikyu.o
+                0x800060b4                decideGameSettings
+ .text.findObjectByPosFromBgdat
+                0x80006124       0xc0 mugendai_meikyu.o
+                0x80006124                findObjectByPosFromBgdat
+ .text.getNumberObject
+                0x800061e4       0x28 mugendai_meikyu.o
+                0x800061e4                getNumberObject
+ .text.getItembox
+                0x8000620c       0x28 mugendai_meikyu.o
+                0x8000620c                getItembox
+ .text.findObjectByTypeFromBgdat
+                0x80006234       0x4c mugendai_meikyu.o
+                0x80006234                findObjectByTypeFromBgdat
+ .text.applyMazeToBgdatL1
+                0x80006280      0x194 mugendai_meikyu.o
+                0x80006280                applyMazeToBgdatL1
+ .text.applyMazeToBgdatL2
+                0x80006414      0x1c4 mugendai_meikyu.o
+                0x80006414                applyMazeToBgdatL2
+ .text.applyMazeToCourseBin
+                0x800065d8      0x174 mugendai_meikyu.o
+                0x800065d8                applyMazeToCourseBin
+ .text.createMugendaiMeikyuGame
+                0x8000674c      0x224 mugendai_meikyu.o
+                0x8000674c                createMugendaiMeikyuGame
+ .text.restoreCourseBackupData
+                0x80006970      0x190 mugendai_meikyu.o
+                0x80006970                restoreCourseBackupData
+ .text.destroyMugendaiMeikyuGame
+                0x80006b00       0x10 mugendai_meikyu.o
+                0x80006b00                destroyMugendaiMeikyuGame
+ .text.doMugendaiMeikyuGame
+                0x80006b10      0x11c mugendai_meikyu.o
+                0x80006b10                doMugendaiMeikyuGame
+ .text.anotherRemoveTitleReplay
+                0x80006c2c       0x88 patch1_run_1fr.o
+                0x80006c2c                anotherRemoveTitleReplay
+ .text.isEventEnabled
+                0x80006cb4       0x70 patch1_run_1fr.o
+                0x80006cb4                isEventEnabled
+ .text.playCountdownSe
+                0x80006d24       0xa4 patch1_run_1fr.o
+                0x80006d24                playCountdownSe
+ .text.fixYoshiSwallow
+                0x80006dc8       0x14 patch1_run_1fr.o
+                0x80006dc8                fixYoshiSwallow
+ .text.patch1_run_1fr
+                0x80006ddc      0x4d8 patch1_run_1fr.o
+                0x80006ddc                patch1_run_1fr
+ .text.patch10_get_layout
+                0x800072b4      0x258 patch10_get_layout.o
+                0x800072b4                patch10_get_layout
+ .text.convertPos3ToMazePos
+                0x8000750c       0x74 patch11_bugmario_actorcreate_hook.o
+                0x8000750c                convertPos3ToMazePos
+ .text.patch11_bugmario_actorcreate_hook
+                0x80007580      0x2e0 patch11_bugmario_actorcreate_hook.o
+                0x80007580                patch11_bugmario_actorcreate_hook
+ .text.patch12_sprite_208_block_actorcreate_hook
+                0x80007860      0x15c patch12_sprite_208_block_actorcreate_hook.o
+                0x80007860                patch12_sprite_208_block_actorcreate_hook
+ .text.handleNWRA
+                0x800079bc      0x138 patch13_newer_do_tiles.o
+                0x800079bc                handleNWRA
+ .text.patch13_newer_do_tiles
+                0x80007af4       0x74 patch13_newer_do_tiles.o
+                0x80007af4                patch13_newer_do_tiles
+ .text.patch14_newer_destroy_tiles
+                0x80007b68       0x38 patch14_newer_destroy_tiles.o
+                0x80007b68                patch14_newer_destroy_tiles
+ .text.patch15_get_houdai_slide_search_killer_flag
+                0x80007ba0       0x34 patch15_get_houdai_slide_search_killer_flag.o
+                0x80007ba0                patch15_get_houdai_slide_search_killer_flag
+ .text.patch16_houdai_slide_generate_killer_hook
+                0x80007bd4       0x54 patch16_houdai_slide_generate_killer_hook.o
+                0x80007bd4                patch16_houdai_slide_generate_killer_hook
+ .text.patch17_get_cur_area
+                0x80007c28       0x48 patch17_get_cur_area.o
+                0x80007c28                patch17_get_cur_area
+ .text.patch18_compare_time_100_hook
+                0x80007c70       0x3c patch18_compare_time_100_hook.o
+                0x80007c70                patch18_compare_time_100_hook
+ .text.BgGmBase__getPointerToTile
+                0x80007cac       0x2c patch19_tilegod.o
+                0x80007cac                BgGmBase__getPointerToTile
+ .text.BgGmBase__placeTile
+                0x80007cd8       0x2c patch19_tilegod.o
+                0x80007cd8                BgGmBase__placeTile
+ .text.daChengeBlock_c__doStuff
+                0x80007d04      0x41c patch19_tilegod.o
+                0x80007d04                daChengeBlock_c__doStuff
+ .text.patch2_coin_killer
+                0x80008120       0x5c patch2_coin_killer.o
+                0x80008120                patch2_coin_killer
+ .text.patch3_save_timer_ptr
+                0x8000817c       0x24 patch3_save_timer_ptr.o
+                0x8000817c                patch3_save_timer_ptr
+ .text.patch4_dokan_coin_spawner
+                0x800081a0       0x5c patch4_dokan_coin_spawner.o
+                0x800081a0                patch4_dokan_coin_spawner
+ .text.patch5_coin_lakitu_spawner
+                0x800081fc       0x3c patch5_coin_lakitu_spawner.o
+                0x800081fc                patch5_coin_lakitu_spawner
+ .text.after_course_getMusicForZone
+                0x80008238       0xb8 patch6_get_music_id.o
+                0x80008238                after_course_getMusicForZone
+ .text.patch6_get_music_id
+                0x800082f0       0xa8 patch6_get_music_id.o
+                0x800082f0                patch6_get_music_id
+ .text.patch7_brstm_hijacker
+                0x80008398      0x34c patch7_brstm_hijacker.o
+                0x80008398                patch7_brstm_hijacker
+ .text.patch9_arc_open_hook
+                0x800086e4      0x148 patch9_arc_open_hook.o
+                0x800086e4                patch9_arc_open_hook
+ .text          0x8000882c      0x518 asm.o
+                0x8000882c                getString6
+                0x80008874                getString7
+                0x80008898                getString8
+                0x800088c4                getString9
+                0x80008910                getString10
+                0x8000894c                getString11
+                0x80008990                getString12
+                0x800089cc                getString17
+                0x800089fc                getString18
+                0x80008a34                getString19
+                0x80008a70                getString20
+                0x80008a90                getString21
+                0x80008abc                getString22
+                0x80008ae0                getString23
+                0x80008b00                getString24
+                0x80008b24                getString25
+                0x80008b54                getString26
+                0x80008b90                getString27
+                0x80008bb4                getU16String0
+                0x80008bdc                getU16String1
+                0x80008c08                getU16String2
+                0x80008c44                getPipeFixNodeCalcBin
+                0x80008c98                ICInvalidateRange
+                0x80008cd0                initializeFloat
+                0x80008cdc                abs
+                0x80008cfc                intToFloat
+                0x80008d28                floatToInt
+ .text          0x80008d44       0x54 patch1_run_1fr_asm.o
+                0x80008d44                get_patch1_run_1fr_asm_end
+                0x80008d4c                get_patch1_run_1fr_asm
+ .text          0x80008d98       0x54 patch10_get_layout_asm.o
+                0x80008d98                get_patch10_get_layout_asm_end
+                0x80008da0                get_patch10_get_layout_asm
+ .text          0x80008dec       0x5c patch11_bugmario_actorcreate_hook_asm.o
+                0x80008dec                get_patch11_bugmario_actorcreate_hook_asm_end
+                0x80008df4                get_patch11_bugmario_actorcreate_hook_asm
+ .text          0x80008e48       0x5c patch12_sprite_208_block_actorcreate_hook_asm.o
+                0x80008e48                get_patch12_sprite_208_block_actorcreate_hook_asm_end
+                0x80008e50                get_patch12_sprite_208_block_actorcreate_hook_asm
+ .text          0x80008ea4       0x50 patch13_newer_do_tiles_asm.o
+                0x80008ea4                get_patch13_newer_do_tiles_asm_end
+                0x80008eac                get_patch13_newer_do_tiles_asm
+ .text          0x80008ef4       0x54 patch14_newer_destroy_tiles_asm.o
+                0x80008ef4                get_patch14_newer_destroy_tiles_asm_end
+                0x80008efc                get_patch14_newer_destroy_tiles_asm
+ .text          0x80008f48       0x58 patch15_get_houdai_slide_search_killer_flag_asm.o
+                0x80008f48                get_patch15_get_houdai_slide_search_killer_flag_asm_end
+                0x80008f50                get_patch15_get_houdai_slide_search_killer_flag_asm
+ .text          0x80008fa0       0x58 patch16_houdai_slide_generate_killer_hook_asm.o
+                0x80008fa0                get_patch16_houdai_slide_generate_killer_hook_asm_end
+                0x80008fa8                get_patch16_houdai_slide_generate_killer_hook_asm
+ .text          0x80008ff8       0x54 patch17_get_cur_area_asm.o
+                0x80008ff8                get_patch17_get_cur_area_asm_end
+                0x80009000                get_patch17_get_cur_area_asm
+ .text          0x8000904c       0x78 patch18_compare_time_100_hook_asm.o
+                0x8000904c                get_patch18_compare_time_100_hook_asm_end
+                0x80009054                get_patch18_compare_time_100_hook_asm
+ .text          0x800090c4       0xac patch19_tilegod_asm.o
+                0x800090c4                get_daChengeBlock_c__doStuff_asm
+                0x800090d0                get_Special_end
+                0x800090d8                get_NEW_GetTileFromTileTable
+                0x80009108                TileGodHack
+ .text          0x80009170       0x54 patch2_coin_killer_asm.o
+                0x80009170                get_patch2_coin_killer_asm_end
+                0x80009178                get_patch2_coin_killer_asm
+ .text          0x800091c4       0x34 patch20_zurumode_itemstock99.o
+                0x800091c4                get_patch20_zurumode_itemstock99_asm_end
+                0x800091cc                get_patch20_zurumode_itemstock99_asm
+ .text          0x800091f8       0x58 patch3_save_timer_ptr_asm.o
+                0x800091f8                get_patch3_save_timer_ptr_asm_end
+                0x80009200                get_patch3_save_timer_ptr_asm
+ .text          0x80009250       0x58 patch4_dokan_coin_spawner_asm.o
+                0x80009250                get_patch4_dokan_coin_spawner_asm_end
+                0x80009258                get_patch4_dokan_coin_spawner_asm
+ .text          0x800092a8       0x68 patch5_coin_lakitu_spawner_asm.o
+                0x800092a8                get_patch5_coin_lakitu_spawner_asm_end
+                0x800092b0                get_patch5_coin_lakitu_spawner_asm
+ .text          0x80009310       0x5c patch6_get_music_id_asm.o
+                0x80009310                get_patch6_get_music_id_asm_end
+                0x80009318                get_patch6_get_music_id_asm
+ .text          0x8000936c      0x2a0 patch7_brstm_hijacker_asm.o
+                0x8000936c                get_patch7_brstm_hijacker_asm_end
+                0x80009374                get_patch7_brstm_hijacker_asm
+                0x800093c4                getString0
+                0x800093fc                getString1
+                0x80009438                getString13
+                0x80009474                getString14
+                0x800094ac                getString2
+                0x800094e8                getString3
+                0x80009528                getString4
+                0x80009558                getString5
+                0x8000958c                getString15
+                0x800095cc                getString16
+ .text          0x8000960c       0x38 patch8_auto_brsar_patch_asm.o
+                0x8000960c                get_patch8_auto_brsar_patch_asm_end
+                0x80009614                get_patch8_auto_brsar_patch_asm
+ .text          0x80009644       0x54 patch9_arc_open_hook_asm.o
+                0x80009644                get_patch9_arc_open_hook_asm_end
+                0x8000964c                get_patch9_arc_open_hook_asm
+OUTPUT(C:/Users/Kazuki/Desktop/develop/Wii/ASM/KazukiMarioWiiSystem/System/System.elf elf32-powerpc)
+
+.glink          0x80009698        0x0
+ .glink         0x80009698        0x0 dvd_file.o
+
+.eh_frame_hdr   0x80009698        0x0
+ .eh_frame_hdr  0x80009698        0x0 dvd_file.o
+
+.eh_frame       0x80009698        0x0
+ .eh_frame      0x80009698        0x0 dvd_file.o
+
+.sdata2         0x80009698        0x0
+ .sdata2        0x80009698        0x0 dvd_file.o
+
+.rodata.daChengeBlock_c__doStuff
+                0x80009698       0x20
+ .rodata.daChengeBlock_c__doStuff
+                0x80009698       0x20 patch19_tilegod.o
+
+.branch_lt      0x800096b8        0x0
+ .branch_lt     0x800096b8        0x0 dvd_file.o
+
+.sdata          0x800096b8        0x0
+ .sdata         0x800096b8        0x0 dvd_file.o
+
+.rela.dyn       0x800096b8        0x0
+ .rela.iplt     0x800096b8        0x0 dvd_file.o
+
+.iplt           0x800096c0        0x0
+ .iplt          0x800096c0        0x0 dvd_file.o
+
+.debug_info     0x00000000    0x13822
+ .debug_info    0x00000000      0x2d6 dvd_file.o
+ .debug_info    0x000002d6      0x3b2 game.o
+ .debug_info    0x00000688      0x384 lyt.o
+ .debug_info    0x00000a0c     0x1de6 main.o
+ .debug_info    0x000027f2     0x2747 mugendai_meikyu.o
+ .debug_info    0x00004f39     0x250b patch1_run_1fr.o
+ .debug_info    0x00007444      0x892 patch10_get_layout.o
+ .debug_info    0x00007cd6     0x2149 patch11_bugmario_actorcreate_hook.o
+ .debug_info    0x00009e1f     0x18f4 patch12_sprite_208_block_actorcreate_hook.o
+ .debug_info    0x0000b713      0xc63 patch13_newer_do_tiles.o
+ .debug_info    0x0000c376      0x63a patch14_newer_destroy_tiles.o
+ .debug_info    0x0000c9b0      0x8a1 patch15_get_houdai_slide_search_killer_flag.o
+ .debug_info    0x0000d251     0x1cf5 patch16_houdai_slide_generate_killer_hook.o
+ .debug_info    0x0000ef46      0x5fc patch17_get_cur_area.o
+ .debug_info    0x0000f542       0x9f patch18_compare_time_100_hook.o
+ .debug_info    0x0000f5e1     0x1aee patch19_tilegod.o
+ .debug_info    0x000110cf      0x5e5 patch2_coin_killer.o
+ .debug_info    0x000116b4      0x5ce patch3_save_timer_ptr.o
+ .debug_info    0x00011c82      0x417 patch4_dokan_coin_spawner.o
+ .debug_info    0x00012099       0x9f patch5_coin_lakitu_spawner.o
+ .debug_info    0x00012138      0x675 patch6_get_music_id.o
+ .debug_info    0x000127ad      0x939 patch7_brstm_hijacker.o
+ .debug_info    0x000130e6      0x73c patch9_arc_open_hook.o
+
+.debug_abbrev   0x00000000     0x2528
+ .debug_abbrev  0x00000000      0x14d dvd_file.o
+ .debug_abbrev  0x0000014d      0x12c game.o
+ .debug_abbrev  0x00000279      0x19d lyt.o
+ .debug_abbrev  0x00000416      0x2ec main.o
+ .debug_abbrev  0x00000702      0x372 mugendai_meikyu.o
+ .debug_abbrev  0x00000a74      0x2f1 patch1_run_1fr.o
+ .debug_abbrev  0x00000d65      0x1c5 patch10_get_layout.o
+ .debug_abbrev  0x00000f2a      0x21f patch11_bugmario_actorcreate_hook.o
+ .debug_abbrev  0x00001149      0x167 patch12_sprite_208_block_actorcreate_hook.o
+ .debug_abbrev  0x000012b0      0x1fa patch13_newer_do_tiles.o
+ .debug_abbrev  0x000014aa      0x134 patch14_newer_destroy_tiles.o
+ .debug_abbrev  0x000015de      0x136 patch15_get_houdai_slide_search_killer_flag.o
+ .debug_abbrev  0x00001714      0x1c7 patch16_houdai_slide_generate_killer_hook.o
+ .debug_abbrev  0x000018db      0x122 patch17_get_cur_area.o
+ .debug_abbrev  0x000019fd       0x6a patch18_compare_time_100_hook.o
+ .debug_abbrev  0x00001a67      0x321 patch19_tilegod.o
+ .debug_abbrev  0x00001d88       0xdf patch2_coin_killer.o
+ .debug_abbrev  0x00001e67       0xef patch3_save_timer_ptr.o
+ .debug_abbrev  0x00001f56      0x117 patch4_dokan_coin_spawner.o
+ .debug_abbrev  0x0000206d       0x6a patch5_coin_lakitu_spawner.o
+ .debug_abbrev  0x000020d7      0x15b patch6_get_music_id.o
+ .debug_abbrev  0x00002232      0x17e patch7_brstm_hijacker.o
+ .debug_abbrev  0x000023b0      0x178 patch9_arc_open_hook.o
+
+.debug_loclists
+                0x00000000     0x30d9
+ .debug_loclists
+                0x00000000       0x85 dvd_file.o
+ .debug_loclists
+                0x00000085      0x165 game.o
+ .debug_loclists
+                0x000001ea       0xb7 lyt.o
+ .debug_loclists
+                0x000002a1      0x7c9 main.o
+ .debug_loclists
+                0x00000a6a     0x10c7 mugendai_meikyu.o
+ .debug_loclists
+                0x00001b31      0x20f patch1_run_1fr.o
+ .debug_loclists
+                0x00001d40      0x220 patch10_get_layout.o
+ .debug_loclists
+                0x00001f60      0x42b patch11_bugmario_actorcreate_hook.o
+ .debug_loclists
+                0x0000238b      0x166 patch12_sprite_208_block_actorcreate_hook.o
+ .debug_loclists
+                0x000024f1      0x27a patch13_newer_do_tiles.o
+ .debug_loclists
+                0x0000276b       0x68 patch14_newer_destroy_tiles.o
+ .debug_loclists
+                0x000027d3       0x17 patch15_get_houdai_slide_search_killer_flag.o
+ .debug_loclists
+                0x000027ea       0xd7 patch16_houdai_slide_generate_killer_hook.o
+ .debug_loclists
+                0x000028c1       0x37 patch17_get_cur_area.o
+ .debug_loclists
+                0x000028f8       0x66 patch18_compare_time_100_hook.o
+ .debug_loclists
+                0x0000295e      0x2f8 patch19_tilegod.o
+ .debug_loclists
+                0x00002c56       0x5a patch2_coin_killer.o
+ .debug_loclists
+                0x00002cb0       0x17 patch3_save_timer_ptr.o
+ .debug_loclists
+                0x00002cc7      0x12d patch4_dokan_coin_spawner.o
+ .debug_loclists
+                0x00002df4       0x80 patch5_coin_lakitu_spawner.o
+ .debug_loclists
+                0x00002e74       0xeb patch6_get_music_id.o
+ .debug_loclists
+                0x00002f5f       0x5c patch7_brstm_hijacker.o
+ .debug_loclists
+                0x00002fbb      0x11e patch9_arc_open_hook.o
+
+.debug_aranges  0x00000000      0x588
+ .debug_aranges
+                0x00000000       0x28 dvd_file.o
+ .debug_aranges
+                0x00000028       0x38 game.o
+ .debug_aranges
+                0x00000060       0x28 lyt.o
+ .debug_aranges
+                0x00000088      0x108 main.o
+ .debug_aranges
+                0x00000190      0x148 mugendai_meikyu.o
+ .debug_aranges
+                0x000002d8       0x50 patch1_run_1fr.o
+ .debug_aranges
+                0x00000328       0x20 patch10_get_layout.o
+ .debug_aranges
+                0x00000348       0x28 patch11_bugmario_actorcreate_hook.o
+ .debug_aranges
+                0x00000370       0x20 patch12_sprite_208_block_actorcreate_hook.o
+ .debug_aranges
+                0x00000390       0x38 patch13_newer_do_tiles.o
+ .debug_aranges
+                0x000003c8       0x28 patch14_newer_destroy_tiles.o
+ .debug_aranges
+                0x000003f0       0x20 patch15_get_houdai_slide_search_killer_flag.o
+ .debug_aranges
+                0x00000410       0x20 patch16_houdai_slide_generate_killer_hook.o
+ .debug_aranges
+                0x00000430       0x20 patch17_get_cur_area.o
+ .debug_aranges
+                0x00000450       0x20 patch18_compare_time_100_hook.o
+ .debug_aranges
+                0x00000470       0x30 patch19_tilegod.o
+ .debug_aranges
+                0x000004a0       0x20 patch2_coin_killer.o
+ .debug_aranges
+                0x000004c0       0x20 patch3_save_timer_ptr.o
+ .debug_aranges
+                0x000004e0       0x20 patch4_dokan_coin_spawner.o
+ .debug_aranges
+                0x00000500       0x20 patch5_coin_lakitu_spawner.o
+ .debug_aranges
+                0x00000520       0x28 patch6_get_music_id.o
+ .debug_aranges
+                0x00000548       0x20 patch7_brstm_hijacker.o
+ .debug_aranges
+                0x00000568       0x20 patch9_arc_open_hook.o
+
+.debug_rnglists
+                0x00000000      0x508
+ .debug_rnglists
+                0x00000000       0x1a dvd_file.o
+ .debug_rnglists
+                0x0000001a       0x25 game.o
+ .debug_rnglists
+                0x0000003f       0x19 lyt.o
+ .debug_rnglists
+                0x00000058       0xc9 main.o
+ .debug_rnglists
+                0x00000121      0x1b5 mugendai_meikyu.o
+ .debug_rnglists
+                0x000002d6       0x7b patch1_run_1fr.o
+ .debug_rnglists
+                0x00000351       0x22 patch10_get_layout.o
+ .debug_rnglists
+                0x00000373       0x1a patch11_bugmario_actorcreate_hook.o
+ .debug_rnglists
+                0x0000038d       0x14 patch12_sprite_208_block_actorcreate_hook.o
+ .debug_rnglists
+                0x000003a1       0x28 patch13_newer_do_tiles.o
+ .debug_rnglists
+                0x000003c9       0x19 patch14_newer_destroy_tiles.o
+ .debug_rnglists
+                0x000003e2       0x13 patch15_get_houdai_slide_search_killer_flag.o
+ .debug_rnglists
+                0x000003f5       0x13 patch16_houdai_slide_generate_killer_hook.o
+ .debug_rnglists
+                0x00000408       0x13 patch17_get_cur_area.o
+ .debug_rnglists
+                0x0000041b       0x13 patch18_compare_time_100_hook.o
+ .debug_rnglists
+                0x0000042e       0x4b patch19_tilegod.o
+ .debug_rnglists
+                0x00000479       0x13 patch2_coin_killer.o
+ .debug_rnglists
+                0x0000048c       0x13 patch3_save_timer_ptr.o
+ .debug_rnglists
+                0x0000049f       0x13 patch4_dokan_coin_spawner.o
+ .debug_rnglists
+                0x000004b2       0x13 patch5_coin_lakitu_spawner.o
+ .debug_rnglists
+                0x000004c5       0x1b patch6_get_music_id.o
+ .debug_rnglists
+                0x000004e0       0x14 patch7_brstm_hijacker.o
+ .debug_rnglists
+                0x000004f4       0x14 patch9_arc_open_hook.o
+
+.debug_line     0x00000000     0x3fee
+ .debug_line    0x00000000      0x12f dvd_file.o
+ .debug_line    0x0000012f       0xf7 game.o
+ .debug_line    0x00000226       0xc0 lyt.o
+ .debug_line    0x000002e6      0x76e main.o
+ .debug_line    0x00000a54     0x16b8 mugendai_meikyu.o
+ .debug_line    0x0000210c      0x507 patch1_run_1fr.o
+ .debug_line    0x00002613      0x1ba patch10_get_layout.o
+ .debug_line    0x000027cd      0x28e patch11_bugmario_actorcreate_hook.o
+ .debug_line    0x00002a5b      0x17c patch12_sprite_208_block_actorcreate_hook.o
+ .debug_line    0x00002bd7      0x2e3 patch13_newer_do_tiles.o
+ .debug_line    0x00002eba      0x103 patch14_newer_destroy_tiles.o
+ .debug_line    0x00002fbd       0xf6 patch15_get_houdai_slide_search_killer_flag.o
+ .debug_line    0x000030b3       0xfa patch16_houdai_slide_generate_killer_hook.o
+ .debug_line    0x000031ad       0xcb patch17_get_cur_area.o
+ .debug_line    0x00003278       0xd3 patch18_compare_time_100_hook.o
+ .debug_line    0x0000334b      0x3c8 patch19_tilegod.o
+ .debug_line    0x00003713      0x100 patch2_coin_killer.o
+ .debug_line    0x00003813       0xc9 patch3_save_timer_ptr.o
+ .debug_line    0x000038dc       0xe6 patch4_dokan_coin_spawner.o
+ .debug_line    0x000039c2       0xd0 patch5_coin_lakitu_spawner.o
+ .debug_line    0x00003a92      0x1f1 patch6_get_music_id.o
+ .debug_line    0x00003c83      0x1e0 patch7_brstm_hijacker.o
+ .debug_line    0x00003e63      0x18b patch9_arc_open_hook.o
+
+.debug_str      0x00000000     0x5f7b
+ .debug_str     0x00000000      0x204 dvd_file.o
+                                0x222 (size before relaxing)
+ .debug_str     0x00000204      0x19f game.o
+                                0x2a8 (size before relaxing)
+ .debug_str     0x000003a3      0x20d lyt.o
+                                0x328 (size before relaxing)
+ .debug_str     0x000005b0      0xd94 main.o
+                               0x1029 (size before relaxing)
+ .debug_str     0x00001344      0x5be mugendai_meikyu.o
+                                0xb6d (size before relaxing)
+ .debug_str     0x00001902     0x2ef7 patch1_run_1fr.o
+                               0x3763 (size before relaxing)
+ .debug_str     0x000047f9       0xe3 patch10_get_layout.o
+                                0x65b (size before relaxing)
+ .debug_str     0x000048dc      0x143 patch11_bugmario_actorcreate_hook.o
+                               0x348c (size before relaxing)
+ .debug_str     0x00004a1f       0xc3 patch12_sprite_208_block_actorcreate_hook.o
+                               0x2fc3 (size before relaxing)
+ .debug_str     0x00004ae2      0x1a9 patch13_newer_do_tiles.o
+                                0x760 (size before relaxing)
+ .debug_str     0x00004c8b       0xa2 patch14_newer_destroy_tiles.o
+                                0x5af (size before relaxing)
+ .debug_str     0x00004d2d       0xa5 patch15_get_houdai_slide_search_killer_flag.o
+                                0x788 (size before relaxing)
+ .debug_str     0x00004dd2       0xa1 patch16_houdai_slide_generate_killer_hook.o
+                               0x334c (size before relaxing)
+ .debug_str     0x00004e73       0x77 patch17_get_cur_area.o
+                                0x570 (size before relaxing)
+ .debug_str     0x00004eea       0x89 patch18_compare_time_100_hook.o
+                                0x1ae (size before relaxing)
+ .debug_str     0x00004f73      0xbe8 patch19_tilegod.o
+                                0xdff (size before relaxing)
+ .debug_str     0x00005b5b       0x73 patch2_coin_killer.o
+                                0x57d (size before relaxing)
+ .debug_str     0x00005bce       0x79 patch3_save_timer_ptr.o
+                                0x567 (size before relaxing)
+ .debug_str     0x00005c47       0x81 patch4_dokan_coin_spawner.o
+                                0x3bc (size before relaxing)
+ .debug_str     0x00005cc8       0x83 patch5_coin_lakitu_spawner.o
+                                0x1a8 (size before relaxing)
+ .debug_str     0x00005d4b       0x9a patch6_get_music_id.o
+                                0x5b9 (size before relaxing)
+ .debug_str     0x00005de5       0xfc patch7_brstm_hijacker.o
+                                0x612 (size before relaxing)
+ .debug_str     0x00005ee1       0x9a patch9_arc_open_hook.o
+                                0x629 (size before relaxing)
+
+.comment        0x00000000       0x25
+ .comment       0x00000000       0x25 dvd_file.o
+                                 0x26 (size before relaxing)
+ .comment       0x00000025       0x26 game.o
+ .comment       0x00000025       0x26 lyt.o
+ .comment       0x00000025       0x26 main.o
+ .comment       0x00000025       0x26 mugendai_meikyu.o
+ .comment       0x00000025       0x26 patch1_run_1fr.o
+ .comment       0x00000025       0x26 patch10_get_layout.o
+ .comment       0x00000025       0x26 patch11_bugmario_actorcreate_hook.o
+ .comment       0x00000025       0x26 patch12_sprite_208_block_actorcreate_hook.o
+ .comment       0x00000025       0x26 patch13_newer_do_tiles.o
+ .comment       0x00000025       0x26 patch14_newer_destroy_tiles.o
+ .comment       0x00000025       0x26 patch15_get_houdai_slide_search_killer_flag.o
+ .comment       0x00000025       0x26 patch16_houdai_slide_generate_killer_hook.o
+ .comment       0x00000025       0x26 patch17_get_cur_area.o
+ .comment       0x00000025       0x26 patch18_compare_time_100_hook.o
+ .comment       0x00000025       0x26 patch19_tilegod.o
+ .comment       0x00000025       0x26 patch2_coin_killer.o
+ .comment       0x00000025       0x26 patch3_save_timer_ptr.o
+ .comment       0x00000025       0x26 patch4_dokan_coin_spawner.o
+ .comment       0x00000025       0x26 patch5_coin_lakitu_spawner.o
+ .comment       0x00000025       0x26 patch6_get_music_id.o
+ .comment       0x00000025       0x26 patch7_brstm_hijacker.o
+ .comment       0x00000025       0x26 patch9_arc_open_hook.o
+
+.gnu.attributes
+                0x00000000       0x10
+ .gnu.attributes
+                0x00000000       0x10 main.o
+ .gnu.attributes
+                0x00000010       0x10 patch11_bugmario_actorcreate_hook.o
+ .gnu.attributes
+                0x00000020       0x10 patch12_sprite_208_block_actorcreate_hook.o
+ .gnu.attributes
+                0x00000030       0x10 patch19_tilegod.o

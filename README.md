@@ -29,9 +29,14 @@ patch10 ...メモリを確保するための変数を取得
 patch11 ...patch6で決めたとおりに敵を生成(1-2のみ)
 
 
-これらのパッチはほとんどNewer Super Mario Bros. Wiiのソースコードをもとに作成しました。Newer Teamに感謝致します。
+これらのパッチはほとんどNewer Super Mario Bros. Wii並びにNSMBW-Updatedのソースコードをもとに作成しました。Newer Teamとコミュニティに感謝致します。
 
 https://github.com/Newer-Team/NewerSMBW
 
 Newer Super Mario Bros. Wiiソースコードライセンス
 https://github.com/Newer-Team/NewerSMBW/blob/cw/LICENSE
+
+https://github.com/NSMBW-Community/NSMBW-Updated
+
+NSMBW-Updatedソースコードライセンス
+https://github.com/NSMBW-Community/NSMBW-Updated/blob/master/license.txt
