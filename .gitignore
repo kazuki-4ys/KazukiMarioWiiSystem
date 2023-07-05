@@ -1,0 +1,7 @@
+Loader/build/
+Loader/Loader.bin
+Loader/Loader.elf
+Loader/Loader.rawcode
+System/build/
+System/System.bin
+System/System.elf
