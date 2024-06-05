@@ -125,10 +125,12 @@ void patch1_run_1fr(void){
     }
     #endif//ZURUMODE
     anotherRemoveTitleReplay();
-    if(bytesToU32((void*)0x807E1360) == 0x9421ff50){
+    //スプライト191をNewer同様に拡張
+    //rev1でクラッシュするため一時的に無効化
+    /*if(bytesToU32((void*)0x807E1360) == 0x9421ff50){
         u32ToBytes(0x807E1360, makeBranchInstructionByAddrDelta(get_daChengeBlock_c__doStuff_asm() - 0x807E1360));
         ICInvalidateRange((void*)((unsigned int)0x807E1360 & (~0x1F)), 0x20);
-    }
+    }*/
     unsigned char curLevelWorld = *((unsigned char*)((void*)CUR_LEVEL_WORLD)) + 1;
     unsigned char curLevelStage = *((unsigned char*)((void*)CUR_LEVEL_STAGE)) + 1;
     myMemStruct *myMem = *myMemPtr;

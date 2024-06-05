@@ -270,8 +270,12 @@ void __main(void){
     u32ToBytes((void*)0x80087544, 0x38801000);//AnimTileFrameHeapPatch
     ICInvalidateRange((void*)0x80087540, 0x20);
     newerPipeFix();
+    //スプライト191をNewer同様に拡張
+    //rev1でクラッシュするため一時的に無効化
+    /*
     u32ToBytes(0x80083490, makeBranchInstructionByAddrDelta(get_NEW_GetTileFromTileTable() - 0x80083490));
     ICInvalidateRange((void*)((unsigned int)0x80083490 & (~0x1F)), 0x20);
     u32ToBytes((unsigned char*)get_Special_end() - 4, makeBranchInstructionByAddrDelta((unsigned int)0x807E1414 - ((unsigned int)get_Special_end() - 4)));
     ICInvalidateRange((void*)(((unsigned int)get_Special_end() - 4) & (~0x1F)), 0x20);
+    */
 }
